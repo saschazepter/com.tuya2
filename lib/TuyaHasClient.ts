@@ -15,9 +15,13 @@ import {
 } from '../types/TuyaApiTypes';
 import * as TuyaOAuth2Util from './TuyaOAuth2Util';
 import TuyaHasToken from './TuyaHasToken';
-import { TuyaHasHome } from '../types/TuyaHasApiTypes';
+import { TuyaHasHome, TuyaMqttConfigResponse, TuyaMqttMessage } from '../types/TuyaHasApiTypes';
 import crypto from 'crypto';
 import TuyaOAuth2Error from './TuyaOAuth2Error';
+import { DeviceRegistration } from '../types/TuyaTypes';
+import { Response } from 'node-fetch';
+import * as TuyaOAuth2Constants from './TuyaOAuth2Constants';
+import mqtt from 'mqtt';
 
 type OAuth2SessionInformation = { id: string; title: string };
 
@@ -28,16 +32,29 @@ export default class TuyaHasClient extends OAuth2Client<TuyaHasToken> {
   static AUTHORIZATION_URL = 'https://openapi.tuyaus.com/login';
   static REDIRECT_URL = 'https://tuya.athom.com/callback';
 
+  mqttPromise?: Promise<void>;
+  mqttConfig?: TuyaMqttConfigResponse;
+  mqttClient?: mqtt.MqttClient;
+
+  resolveReadyPromise!: () => void;
+  readyPromise = new Promise<void>(resolve => {
+    this.resolveReadyPromise = resolve;
+  });
+
   // We save this information to eventually enable OAUTH2_MULTI_SESSION.
   // We can then list all authenticated users by name, e-mail and country flag.
   // This is useful for multiple account across Tuya brands & regions.
   async onGetOAuth2SessionInformation(): Promise<OAuth2SessionInformation> {
     const token = this.getToken();
-
     return {
       id: token.uid,
       title: token.username,
     };
+  }
+
+  async onInit(): Promise<void> {
+    this.resolveReadyPromise();
+    this.connectToMqtt().catch(error => this.error(error));
   }
 
   // Sign the request
@@ -57,6 +74,7 @@ export default class TuyaHasClient extends OAuth2Client<TuyaHasToken> {
     },
     didRefreshToken = false,
   ): Promise<void> {
+    await this.readyPromise;
     if (this._refreshingToken) {
       await this._refreshingToken;
     }
@@ -131,6 +149,13 @@ export default class TuyaHasClient extends OAuth2Client<TuyaHasToken> {
   /*
    * API Methods
    */
+
+  async getMqttConfigHA(): Promise<TuyaMqttConfigResponse> {
+    const linkId = crypto.randomUUID();
+    return this._post('/v1.0/m/life/ha/access/config', {
+      linkId: `tuya-device-sharing-sdk-python.${linkId}`,
+    });
+  }
 
   async getHomesHA(): Promise<TuyaHasHome[]> {
     return this._get(`/v1.0/m/life/users/homes`);
@@ -242,8 +267,118 @@ export default class TuyaHasClient extends OAuth2Client<TuyaHasToken> {
     });
   }
 
+  /*
+   * MQTT
+   */
+  private registeredDevices = new Map<string, DeviceRegistration>();
+  // Devices that are added as 'other' may be duplicates
+  private registeredOtherDevices = new Map<string, DeviceRegistration>();
+
+  registerDevice(
+    {
+      productId,
+      deviceId,
+      onStatus = async (): Promise<void> => {
+        /* empty */
+      },
+    }: DeviceRegistration,
+    other = false,
+  ): void {
+    const register = other ? this.registeredOtherDevices : this.registeredDevices;
+    register.set(deviceId, {
+      productId,
+      deviceId,
+      onStatus,
+    });
+    // Only subscribe once for each device, so check if device is already in the other register
+    if (!this.isRegistered(productId, deviceId, !other)) {
+      // We need an anonymous function here, as the this in this.error is apparently not always bound
+      this.subscribeToMqtt(deviceId).catch(error => this.error(error));
+    }
+  }
+
+  unregisterDevice({ productId, deviceId }: { productId: string; deviceId: string }, other = false): void {
+    const register = other ? this.registeredOtherDevices : this.registeredDevices;
+    register.delete(deviceId);
+    // Only unsubscribe if there are no registrations for the device left, so check if device is still in the other register
+    if (!this.isRegistered(productId, deviceId, !other)) {
+      this.unsubscribeFromMqtt(deviceId).catch(error => this.error(error));
+    }
+  }
+
   isRegistered(productId: string, deviceId: string, other = false): boolean {
-    return false;
+    const register = other ? this.registeredOtherDevices : this.registeredDevices;
+    return register.has(deviceId);
+  }
+
+  async connectToMqtt(): Promise<void> {
+    if (this.mqttPromise !== undefined) {
+      return this.mqttPromise;
+    }
+    let resolveMqttPromise: () => void = () => {
+      return;
+    };
+    this.mqttPromise = new Promise<void>(resolve => {
+      resolveMqttPromise = resolve;
+    });
+    this.log('Connecting to Mqtt');
+    const mqttConfig = await this.getMqttConfigHA();
+    this.mqttConfig = mqttConfig;
+    this.mqttClient = await mqtt.connectAsync(mqttConfig.url, {
+      clientId: mqttConfig.clientId,
+      username: mqttConfig.username,
+      password: mqttConfig.password,
+    });
+    this.mqttClient.on('message', async (topic, message, packet) => {
+      const json = JSON.parse(message.toString()) as TuyaMqttMessage;
+      const deviceId = json.data.devId;
+      const dataPoints = json.data.status ?? [];
+
+      const status: { [key: string]: unknown } = {};
+      const changedStatusCodes: string[] = [];
+
+      for (const dataPoint of dataPoints) {
+        status[dataPoint.code] = dataPoint.value;
+        changedStatusCodes.push(dataPoint.code);
+      }
+
+      this.log('Incoming MQTT:', json.data);
+
+      const registeredDevice = this.registeredDevices.get(deviceId);
+      const registeredOtherDevice = this.registeredOtherDevices.get(deviceId);
+      if (registeredDevice === undefined && registeredOtherDevice === undefined) {
+        this.log('No matching devices found for webhook data');
+        return;
+      }
+
+      if (registeredDevice !== undefined) {
+        await registeredDevice.onStatus('status', status, changedStatusCodes);
+      }
+      if (registeredOtherDevice !== undefined) {
+        await registeredOtherDevice.onStatus('status', status, changedStatusCodes);
+      }
+    });
+    resolveMqttPromise();
+  }
+
+  async subscribeToMqtt(deviceId: string): Promise<void> {
+    if (!this.mqttClient) {
+      await this.connectToMqtt();
+    }
+    const topicTemplate = this.mqttConfig!.topic.devId.sub;
+    const topic = topicTemplate.replace('{devId}', deviceId);
+    await this.mqttClient!.subscribeAsync(topic);
+    this.log('Subscribed to MQTT channel for device:', deviceId);
+  }
+
+  async unsubscribeFromMqtt(deviceId: string): Promise<void> {
+    if (!this.mqttClient) {
+      return;
+    }
+    const topicTemplate = this.mqttConfig!.topic.devId.sub;
+    const topic = topicTemplate.replace('{devId}', deviceId);
+    await this.mqttClient!.unsubscribeAsync(topic);
+    this.log('Unsubscribed from MQTT channel for device:', deviceId);
   }
 }
 

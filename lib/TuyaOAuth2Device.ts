@@ -2,11 +2,11 @@ import { OAuth2Device } from 'homey-oauth2app';
 import type { TuyaCommand, TuyaDeviceDataPointResponse, TuyaStatusResponse, TuyaWebRTC } from '../types/TuyaApiTypes';
 
 import type { TuyaStatus, TuyaStatusSource } from '../types/TuyaTypes';
-import TuyaOAuth2Client from './TuyaOAuth2Client';
 import * as TuyaOAuth2Util from './TuyaOAuth2Util';
 import * as GeneralMigrations from './migrations/GeneralMigrations';
+import TuyaHasClient from './TuyaHasClient';
 
-export default class TuyaOAuth2Device extends OAuth2Device<TuyaOAuth2Client> {
+export default class TuyaOAuth2Device extends OAuth2Device<TuyaHasClient> {
   __status: TuyaStatus;
   __syncInterval?: NodeJS.Timeout;
 
