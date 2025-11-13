@@ -56,3 +56,38 @@ export type TuyaMqttMessage = {
 
 export type TuyaMqttStatus = TuyaMqttStatusDataPoint[];
 export type TuyaMqttStatusDataPoint = { '1': boolean; code: string; t: number; value: unknown };
+
+export type TuyaHasStatusResponse = {
+  category: string;
+  dpStatusRelationDTOS: TuyaHasStatus[];
+  productKey: string;
+};
+
+export type TuyaHasStatus = {
+  dpCode: string;
+  dpId: number;
+  enumMappingMap: {
+    [enumKey: string]: { code: string; value: string }; // code is same as dpCode
+  };
+  statusCode: string;
+  statusFormat: string; // JSON string
+  supportLocal: true;
+  valueConvert: string;
+  valueDesc: string; // JSON string
+  valueType: string;
+};
+
+export type TuyaHasScenesResponse = TuyaHasScene[];
+
+export type TuyaHasScene = {
+  actions: TuyaHasSceneAction[];
+  enabled: boolean;
+  name: string;
+  scene_id: string;
+};
+
+export type TuyaHasSceneAction = {
+  action_executor: string;
+  entity_id: string;
+  executor_property: { [key: string]: unknown };
+};

@@ -18,6 +18,8 @@ import TuyaHasToken from './TuyaHasToken';
 import {
   TuyaHasHome,
   TuyaHasResponse,
+  TuyaHasScenesResponse,
+  TuyaHasStatus,
   TuyaHasStatusResponse,
   TuyaMqttConfigResponse,
   TuyaMqttMessage,
@@ -187,18 +189,14 @@ export default class TuyaHasClient extends OAuth2Client<TuyaHasToken> {
    * API Methods
    */
 
-  async getMqttConfigHA(): Promise<TuyaMqttConfigResponse> {
+  async getMqttConfig(): Promise<TuyaMqttConfigResponse> {
     const linkId = crypto.randomUUID();
     return this._post('/v1.0/m/life/ha/access/config', {
       linkId: `tuya-device-sharing-sdk-python.${linkId}`,
     });
   }
 
-  async getHomesHA(): Promise<TuyaHasHome[]> {
-    return this._get(`/v1.0/m/life/users/homes`);
-  }
-
-  async getDevicesHA({ ownerId }: { ownerId: string }): Promise<TuyaDeviceResponse[]> {
+  async getHomeDevices({ ownerId }: { ownerId: string }): Promise<TuyaDeviceResponse[]> {
     return this.get({
       path: `/v1.0/m/life/ha/home/devices`,
       query: { homeId: ownerId },
@@ -212,17 +210,20 @@ export default class TuyaHasClient extends OAuth2Client<TuyaHasToken> {
     });
   }
 
-  async getMQTTConfigurationHA(): Promise<any> {
-    return this.post({
-      path: '/v1.0/m/life/ha/access/config',
-      json: {
-        linkId: `tuya-device-sharing-sdk-python.26301f1a-ae93-11f0-8de9-0242ac120002`,
-      },
-    });
+  async getHomes(): Promise<TuyaHome[]> {
+    const response = await this.getHasHomes();
+    return response.map((item: TuyaHasHome) => ({
+      geo_name: item.geoName,
+      home_id: item.id,
+      lat: 0,
+      lon: 0,
+      name: item.name,
+      role: '',
+    }));
   }
 
-  async getHomes(): Promise<TuyaHome[]> {
-    throw new Error('Not implemented');
+  async getHasHomes(): Promise<TuyaHasHome[]> {
+    return this._get(`/v1.0/m/life/users/homes`);
   }
 
   async getUserInfo(): Promise<TuyaUserInfo> {
@@ -231,9 +232,9 @@ export default class TuyaHasClient extends OAuth2Client<TuyaHasToken> {
 
   async getDevices(): Promise<TuyaDeviceResponse[]> {
     const devices: TuyaDeviceResponse[] = [];
-    const hasHomes = await this.getHomesHA();
+    const hasHomes = await this.getHasHomes();
     for (const hasHome of hasHomes) {
-      await this.getDevicesHA(hasHome)
+      await this.getHomeDevices(hasHome)
         .then(res => devices.push(...res))
         .catch(this.error);
     }
@@ -241,27 +242,58 @@ export default class TuyaHasClient extends OAuth2Client<TuyaHasToken> {
   }
 
   async getDevice({ deviceId }: { deviceId: string }): Promise<TuyaDeviceResponse> {
-    throw new Error('Not implemented');
+    const devices = await this.get<TuyaDeviceResponse[]>({
+      path: '/v1.0/m/life/ha/devices/detail',
+      query: {
+        devIds: deviceId,
+      },
+    });
+    return devices[0];
   }
 
-  async getScenes(spaceId: string | number): Promise<TuyaScenesResponse> {
-    throw new Error('Not implemented');
+  async getHasScenes(spaceId: string | number): Promise<TuyaHasScenesResponse> {
+    return this.get({
+      path: '/v1.0/m/scene/ha/home/scenes',
+      query: { homeId: spaceId },
+    });
   }
 
-  async triggerScene(sceneId: string): Promise<boolean> {
-    throw new Error('Not implemented');
+  async triggerHasScene(ownerId: string, sceneId: string): Promise<boolean> {
+    return this._post('/v1.0/m/scene/ha/trigger', { homeId: ownerId, sceneId: sceneId });
   }
 
   async getSpecification(deviceId: string): Promise<TuyaDeviceSpecificationResponse> {
-    throw new Error('Not implemented');
+    return this.get({
+      path: `/v1.1/m/life/${deviceId}/specifications`,
+    });
   }
 
   async queryDataPoints(deviceId: string): Promise<TuyaDeviceDataPointResponse> {
-    throw new Error('Not implemented');
+    // NOTE: setting data points is not yet supported, so we don't make them available in flows
+    return {
+      properties: [],
+    };
+  }
+
+  async queryDataPointsSpecification(deviceId: string): Promise<TuyaDeviceDataPointResponse> {
+    const response = await this.get<TuyaHasStatusResponse>({
+      path: `/v1.0/m/life/devices/${deviceId}/status`,
+    });
+    return {
+      properties: response.dpStatusRelationDTOS.map(item => ({
+        code: item.dpCode,
+        custom_name: '',
+        dp_id: item.dpId,
+        time: 0,
+        type: item.valueType,
+        value: item.valueDesc,
+      })),
+    };
   }
 
   async setDataPoint(deviceId: string, dataPointId: string, value: unknown): Promise<void> {
-    throw new Error('Not implemented');
+    // NOTE: setting data points is not yet supported, so we don't make them available in flows
+    throw new Error('Setting data points is currently not supported');
   }
 
   async getWebRTCConfiguration({ deviceId }: { deviceId: string }): Promise<TuyaWebRTC> {
@@ -278,11 +310,14 @@ export default class TuyaHasClient extends OAuth2Client<TuyaHasToken> {
   }
 
   async getDeviceStatus({ deviceId }: { deviceId: string }): Promise<TuyaStatusResponse> {
-    throw new Error('Not implemented');
+    const response = await this.getDevice({ deviceId });
+    return response.status;
   }
 
   async sendCommands({ deviceId, commands = [] }: { deviceId: string; commands: TuyaCommand[] }): Promise<boolean> {
-    throw new Error('Not implemented');
+    return this._post(`/v1.1/m/thing/${deviceId}/commands`, {
+      commands: commands,
+    });
   }
 
   private async _get<T>(path: string): Promise<T> {
@@ -359,7 +394,7 @@ export default class TuyaHasClient extends OAuth2Client<TuyaHasToken> {
       resolveMqttPromise = resolve;
     });
     this.log('Connecting to Mqtt');
-    const mqttConfig = await this.getMqttConfigHA();
+    const mqttConfig = await this.getMqttConfig();
     this.mqttConfig = mqttConfig;
     this.mqttClient = await mqtt.connectAsync(mqttConfig.url, {
       clientId: mqttConfig.clientId,

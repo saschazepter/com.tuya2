@@ -1,6 +1,6 @@
 import { fetch, OAuth2DeviceResult, OAuth2Driver, OAuth2Util } from 'homey-oauth2app';
 import {
-  type TuyaDeviceDataPointResponse,
+  TuyaDeviceDataPointResponse,
   TuyaDeviceResponse,
   TuyaDeviceSpecificationResponse,
 } from '../types/TuyaApiTypes';
@@ -10,7 +10,7 @@ import { sendSetting } from './TuyaOAuth2Util';
 import PairSession from 'homey/lib/PairSession';
 import { URL } from 'url';
 import { Response } from 'node-fetch';
-import { type TuyaQrCodeResponse } from '../types/TuyaHasApiTypes';
+import { TuyaHasStatus, type TuyaQrCodeResponse } from '../types/TuyaHasApiTypes';
 import TuyaHasToken from './TuyaHasToken';
 import TuyaHasClient from './TuyaHasClient';
 import QRCode from 'qrcode';
@@ -219,8 +219,9 @@ export default class TuyaOAuth2Driver extends OAuth2Driver<TuyaHasClient> {
           .getSpecification(device.id)
           .catch(e => this.log('Device specification retrieval failed', e))) ?? undefined;
       const dataPoints =
-        (await oAuth2Client.queryDataPoints(device.id).catch(e => this.log('Device properties retrieval failed', e))) ??
-        undefined;
+        (await oAuth2Client
+          .queryDataPointsSpecification(device.id)
+          .catch(e => this.log('Device properties retrieval failed', e))) ?? undefined;
 
       // GitHub #178: Some device do not have the status property at all.
       // Make sure to populate it with an empty array instead.

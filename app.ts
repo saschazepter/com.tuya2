@@ -23,7 +23,7 @@ const CACHE_TTL = 30;
 type DeviceArgs = { device: TuyaOAuth2Device };
 type StatusCodeArgs = { code: AutoCompleteArg };
 type StatusCodeState = { code: string };
-type HomeyTuyaScene = Pick<TuyaScene, 'id' | 'name'>;
+type HomeyTuyaScene = { name: string; id: string; ownerId: string };
 
 type AutoCompleteArg = {
   name: string;
@@ -228,7 +228,7 @@ module.exports = class TuyaOAuth2App extends OAuth2App {
       .registerRunListener(async (args: { scene: HomeyTuyaScene }) => {
         const { scene } = args;
         const client = this.getFirstSavedOAuth2Client();
-        await client.triggerScene(scene.id);
+        await client.triggerHasScene(scene.ownerId, scene.id);
       })
       .registerArgumentAutocompleteListener('scene', async (query?: string) => {
         if (!this.apiCache.has(SCENE_CACHE_KEY)) {
@@ -236,7 +236,7 @@ module.exports = class TuyaOAuth2App extends OAuth2App {
           const client = this.getFirstSavedOAuth2Client();
 
           // Gets all homes for this user
-          const homes = await client.getHomes().catch(err => {
+          const homes = await client.getHasHomes().catch(err => {
             this.error(err);
             throw new Error(this.homey.__('error_retrieving_scenes'));
           });
@@ -245,19 +245,20 @@ module.exports = class TuyaOAuth2App extends OAuth2App {
           const scenes: Array<HomeyTuyaScene> = [];
           for (const home of homes) {
             await client
-              .getScenes(home.home_id)
+              .getHasScenes(home.ownerId)
               .then(homeScenes =>
                 scenes.push(
-                  ...homeScenes.list.map(scene => ({
+                  ...homeScenes.map(scene => ({
                     name: scene.name,
-                    id: scene.id,
+                    id: scene.scene_id,
+                    ownerId: home.ownerId,
                   })),
                 ),
               )
               .catch(err => {
                 if (err.tuyaCode === 40001900) {
                   // Access to particular home denied, skip it
-                  this.log('Scene home denied access', home.home_id);
+                  this.log('Scene home denied access', home.ownerId);
                   return;
                 }
 
