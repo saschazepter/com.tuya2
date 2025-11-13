@@ -1,0 +1,100 @@
+<style type="text/css">
+  .tuya-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .tuya-usercode-title {
+    text-align: center;
+  }
+
+  .tuya-usercode-text {
+    flex: 1;
+    text-align: center;
+    font-size: 17px;
+    line-height: 24px;
+    color: #1c1c1c;
+  }
+
+  .tuya-usercode-input {
+    width: unset !important;
+    letter-spacing: 4px !important;
+  }
+
+  .tuya-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .tuya-submit-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+  }
+</style>
+
+<div class="tuya-wrap">
+  <header>
+    <h1 class="homey-title tuya-usercode-title" data-i18n="pair.usercode.title">Enter User Code</h1>
+  </header>
+
+  <div class="tuya-body">
+    <p class="tuya-usercode-text">
+      Open the <b>Tuya Smart</b> or <b>Smart Life</b> app.<br />
+      Tap <b>Me</b> in the bottom right corner.<br />
+      Tap the cog icon in the top right corner.<br />
+      Then tap <b>Account and Security</b>.<br />
+      Find your <b>User Code</b> at the bottom, and enter it here.
+    </p>
+
+    <div class="homey-form-pincode">
+      <input
+        id="tuya-usercode-input"
+        class="homey-form-input tuya-usercode-input"
+        type="text"
+        maxlength="10"
+        placeholder="_______"
+      />
+    </div>
+
+    <div class="tuya-submit-wrapper">
+      <button id="tuya-usercode-submit" class="homey-button homey-button-primary-shadow-full is-disabled">
+        Submit
+      </button>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  const input = document.getElementById('tuya-usercode-input');
+  const submit = document.getElementById('tuya-usercode-submit');
+
+  input.addEventListener('input', () => {
+    input.value = input.value.trim();
+    submit.classList.toggle('is-disabled', input.value.trim() === '');
+  });
+  input.addEventListener('keyup', event => {
+    if (event.key === 'Enter' && input.value.trim() !== '') {
+      submit.click();
+    }
+  });
+
+  submit.addEventListener('click', () => {
+    const usercode = input.value.trim();
+    if (!usercode) return;
+
+    submit.classList.add('is-loading');
+
+    Homey.emit('usercode', usercode)
+      .then(async qrcode => {
+        await Homey.setViewStoreValue('qrcode', 'qrcode', qrcode);
+        await Homey.nextView();
+      })
+      .catch(err => Homey.alert(err))
+      .finally(() => {
+        submit.classList.remove('is-loading');
+      });
+  });
+</script>

@@ -1,0 +1,55 @@
+<style type="text/css">
+  .tuya-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .tuya-qrcode-title {
+    text-align: center;
+  }
+
+  .tuya-qrcode-text {
+    text-align: center;
+    font-size: 17px;
+    line-height: 24px;
+    color: #1c1c1c;
+  }
+
+  .tuya-qrcode-image {
+    align-self: center;
+    margin: 1rem;
+    width: 100%;
+  }
+
+  .tuya-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+</style>
+
+<div class="tuya-wrap">
+  <header>
+    <h1 class="homey-title tuya-qrcode-title" data-i18n="pair.qrcode.title">Scan QR Code</h1>
+  </header>
+
+  <div class="tuya-body">
+    <p class="tuya-qrcode-text">
+      Open the <b>Tuya Smart</b> or <b>Smart Life</b> app.<br />
+      Tap <b>Me</b> in the bottom right corner.<br />
+      Tap the scan icon in the top-right corner.<br />
+      Scan the QR Code.
+    </p>
+
+    <img id="tuya-qrcode-image" class="tuya-qrcode-image" />
+  </div>
+</div>
+
+<script type="text/javascript">
+  Homey.getViewStoreValue('qrcode', 'qrcode').then(qrcode => {
+    console.log('QR code:', qrcode);
+    const image = document.getElementById('tuya-qrcode-image');
+    image.src = qrcode;
+  });
+</script>

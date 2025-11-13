@@ -14,6 +14,7 @@ import { type TuyaQrCodeResponse } from '../types/TuyaHasApiTypes';
 import TuyaHasToken from './TuyaHasToken';
 import TuyaHasClient from './TuyaHasClient';
 import QRCode from 'qrcode';
+import type TuyaOAuth2Device from './TuyaOAuth2Device';
 
 export type ListDeviceProperties = {
   store: {
@@ -35,7 +36,11 @@ const USER_CODE_KEY = 'TUYA_USER_CODE';
 export default class TuyaOAuth2Driver extends OAuth2Driver<TuyaHasClient> {
   TUYA_DEVICE_CATEGORIES: ReadonlyArray<string> = [];
 
-  async onPair(session: PairSession): Promise<void> {
+  async onRepair(session: PairSession, device?: TuyaOAuth2Device): Promise<void> {
+    return this.onPair(session, device);
+  }
+
+  async onPair(session: PairSession, device?: TuyaOAuth2Device): Promise<void> {
     const OAuth2ConfigId = this.getOAuth2ConfigId();
     let OAuth2SessionId = '$new';
     let client: TuyaHasClient = this.homey.app.createOAuth2Client({
@@ -167,6 +172,9 @@ export default class TuyaOAuth2Driver extends OAuth2Driver<TuyaHasClient> {
       waitForQrCodeScan(qrcode, userCode)
         .then(res => {
           if (res !== undefined) {
+            if (device !== undefined) {
+              device.setAvailable();
+            }
             return session.nextView();
           }
         })

@@ -2908,8 +2908,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "button",
@@ -2983,8 +2985,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "camera",
@@ -3261,8 +3265,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "socket",
@@ -3490,8 +3496,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "light",
@@ -3722,8 +3730,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "doorbell",
@@ -3998,8 +4008,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "fan",
@@ -4106,8 +4118,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "garagedoor",
@@ -4196,8 +4210,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "heater",
@@ -4376,8 +4392,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "watervalve",
@@ -4607,8 +4625,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "light",
@@ -4821,8 +4841,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "other",
@@ -4889,8 +4911,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "sensor",
@@ -5090,8 +5114,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "sensor",
@@ -5180,8 +5206,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "sensor",
@@ -5307,8 +5335,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "sensor",
@@ -5397,8 +5427,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "sensor",
@@ -5487,8 +5519,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "siren",
@@ -5600,8 +5634,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "socket",
@@ -5829,8 +5865,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "thermostat",
@@ -6236,8 +6274,10 @@
       ],
       "repair": [
         {
-          "id": "login_oauth2",
-          "template": "login_oauth2"
+          "id": "usercode"
+        },
+        {
+          "id": "qrcode"
         }
       ],
       "class": "windowcoverings",

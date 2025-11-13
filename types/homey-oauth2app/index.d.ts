@@ -2,12 +2,15 @@
 declare module 'homey-oauth2app' {
   import Homey, { SimpleClass } from 'homey';
   import { Log } from 'homey-log';
+  import PairSession from 'homey/lib/PairSession';
   export { fetch } from 'node-fetch';
 
   export class OAuth2App extends Homey.App {
     onOAuth2Init(): Promise<void>;
 
     getFirstSavedOAuth2Client(): OAuth2Client;
+
+    getSavedOAuth2Sessions(): Record<string, unknown>;
 
     homeyLog: Log;
   }
@@ -78,6 +81,8 @@ declare module 'homey-oauth2app' {
     onOAuth2Deleted(): Promise<void>;
 
     homey: Homey;
+
+    ready(): Promise<void>;
   }
 
   export class OAuth2Driver<T extends OAuth2Client> extends Homey.Driver {
@@ -88,6 +93,11 @@ declare module 'homey-oauth2app' {
     getOAuth2ConfigId(): string;
 
     homey: Homey;
+
+    onPair(session: PairSession, device?: OAuth2Device<T>): Promise<void>;
+    onRepair(session: PairSession, device?: OAuth2Device<T>): Promise<void>;
+
+    ready(): Promise<void>;
   }
 
   export interface OAuth2DeviceResult {
