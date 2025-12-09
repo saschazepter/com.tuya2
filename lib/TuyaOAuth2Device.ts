@@ -165,6 +165,9 @@ export default class TuyaOAuth2Device extends OAuth2Device<TuyaHasClient> {
       } else if (typeof changedStatusValue === 'object') {
         changedStatusValue = JSON.stringify(changedStatusValue);
         triggerCardId = 'receive_status_json';
+      } else {
+        this.error('Unknown type for:', changedStatusCode, JSON.stringify(changedStatusValue));
+        continue;
       }
 
       await this.homey.flow

@@ -377,6 +377,9 @@ export default class TuyaHasClient extends OAuth2Client<TuyaHasToken> {
     });
     this.mqttClient.on('message', async (topic, message, packet) => {
       const json = JSON.parse(message.toString()) as TuyaMqttMessage;
+
+      this.log('Incoming MQTT:', json.data);
+
       const deviceId = json.data.devId;
       const dataPoints = json.data.status ?? [];
 
@@ -384,11 +387,13 @@ export default class TuyaHasClient extends OAuth2Client<TuyaHasToken> {
       const changedStatusCodes: string[] = [];
 
       for (const dataPoint of dataPoints) {
+        if (dataPoint.code === undefined) {
+          this.error('Malformed datapoint:', JSON.stringify(dataPoint));
+          continue;
+        }
         status[dataPoint.code] = dataPoint.value;
         changedStatusCodes.push(dataPoint.code);
       }
-
-      this.log('Incoming MQTT:', json.data);
 
       const registeredDevice = this.registeredDevices.get(deviceId);
       const registeredOtherDevice = this.registeredOtherDevices.get(deviceId);
