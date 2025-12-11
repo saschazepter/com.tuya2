@@ -1,5 +1,8 @@
 {
   "1.0.0": {
     "en": "First release"
+  },
+  "1.0.1": {
+    "en": "Add github repo, resolve possible crash on settings error"
   }
 }
