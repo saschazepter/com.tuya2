@@ -71,6 +71,14 @@ export default class TuyaOAuth2Device extends OAuth2Device<TuyaHaClient> {
       isOtherDevice,
     );
 
+    this.oAuth2Client.on('token_error', value => {
+      if (value) {
+        this.setUnavailable(this.homey.__('error_refreshing_token'));
+      } else {
+        this.setAvailable();
+      }
+    });
+
     const statusSourceUpdateCodes = this.getStoreValue('status_source_update_codes');
     if (Array.isArray(statusSourceUpdateCodes)) {
       this.log('Restoring status source update codes: ', JSON.stringify(statusSourceUpdateCodes));

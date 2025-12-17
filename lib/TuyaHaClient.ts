@@ -45,6 +45,10 @@ export default class TuyaHaClient extends OAuth2Client<TuyaHaToken> {
     this.resolveReadyPromise = resolve;
   });
 
+  private tokenRefresher?: NodeJS.Timeout;
+  private lastTokenSave = 0; // This default will ensure an automated refresh 30 seconds after app start
+  private tokenExpireTime = 7200; // 2 hours in seconds
+
   // We save this information to eventually enable OAUTH2_MULTI_SESSION.
   // We can then list all authenticated users by name, e-mail and country flag.
   // This is useful for multiple account across Tuya brands & regions.
@@ -59,6 +63,15 @@ export default class TuyaHaClient extends OAuth2Client<TuyaHaToken> {
   async onInit(): Promise<void> {
     this.error = this.error.bind(this);
     this.resolveReadyPromise();
+
+    // Automatic token refresher as this app relies on MQTT data, which doesn't refresh the token automatically
+    this.tokenRefresher = this.homey.setInterval(() => this.refreshApiToken(), 30 * 1000);
+  }
+
+  async onUninit(): Promise<void> {
+    if (this.tokenRefresher) {
+      this.homey.clearInterval(this.tokenRefresher);
+    }
   }
 
   // Sign the request
@@ -174,6 +187,10 @@ export default class TuyaHaClient extends OAuth2Client<TuyaHaToken> {
         this.setToken({ token: newToken });
         // Otherwise, the token is not stored in the store!
         this.save();
+
+        // Store last token save and expire time for automated refresh
+        this.lastTokenSave = Date.now();
+        this.tokenExpireTime = token.expire_time ?? 7200;
 
         this.log('Refreshed token:', newToken);
       })
@@ -361,7 +378,14 @@ export default class TuyaHaClient extends OAuth2Client<TuyaHaToken> {
   }
 
   save(): void {
+    // Reset MQTT to force reconnect
     this.resetMqtt();
+
+    // Clear devices, due to the save action they will be registered again
+    this.registeredDevices.clear();
+    this.registeredOtherDevices.clear();
+
+    // Execute original save, which will store the token in the app store
     super.save();
   }
 
@@ -369,8 +393,6 @@ export default class TuyaHaClient extends OAuth2Client<TuyaHaToken> {
     this.mqttClient?.end(true);
     this.mqttClient = undefined;
     this.mqttPromise = undefined;
-    this.registeredDevices.clear();
-    this.registeredOtherDevices.clear();
   }
 
   async connectToMqtt(): Promise<void> {
@@ -449,6 +471,24 @@ export default class TuyaHaClient extends OAuth2Client<TuyaHaToken> {
     const topic = topicTemplate.replace('{devId}', deviceId);
     await this.mqttClient.unsubscribeAsync(topic);
     this.log('Unsubscribed from MQTT channel for device:', deviceId);
+  }
+
+  private refreshApiToken(): void {
+    if (Date.now() - this.lastTokenSave < (this.tokenExpireTime - 100) * 1000) {
+      // No need to refresh
+      return;
+    }
+
+    this.log('Automatic token refresh');
+    this.refreshToken()
+      .then(() => this.setTokenError(false))
+      .catch(e => this.setTokenError(true, e))
+      .catch(e => this.setTokenError(false, e));
+  }
+
+  private setTokenError(value: boolean, warning?: unknown): void {
+    this.log('Token error state updated', value, warning);
+    this.emit('token_error', value);
   }
 }
 
