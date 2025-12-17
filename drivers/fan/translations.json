@@ -24,16 +24,6 @@
       "insightsTitleFalse": {
         "en": "Turned off (Light)"
       }
-    },
-    "dim.fan": {
-      "title": {
-        "en": "Fan"
-      }
-    },
-    "dim.light": {
-      "title": {
-        "en": "Light"
-      }
     }
   }
 }

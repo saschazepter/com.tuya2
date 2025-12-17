@@ -3,8 +3,8 @@ import TRANSLATIONS from './translations.json';
 export const FAN_CAPABILITIES_MAPPING = {
   switch: 'onoff',
   fan_switch: 'onoff',
-  fan_speed_percent: 'dim',
-  // fan_speed can be both dim and legacy_fan_speed
+  fan_speed_percent: 'fan_speed',
+  // fan_speed can be both fan_speed and legacy_fan_speed
   switch_vertical: 'fan_swing_vertical',
   switch_horizontal: 'fan_swing_horizontal',
   child_lock: 'child_lock',
@@ -18,7 +18,7 @@ export const FAN_CAPABILITIES_MAPPING = {
 export const FAN_LIGHT_CAPABILITIES_MAPPING = {
   light: 'onoff.light',
   switch_led: 'onoff.light',
-  bright_value: 'dim.light',
+  bright_value: 'dim',
   temp_value: 'light_temperature',
 } as const;
 

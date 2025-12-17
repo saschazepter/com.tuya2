@@ -1059,29 +1059,6 @@
         ]
       },
       {
-        "id": "fan_light_dim_changed",
-        "title": {
-          "en": "Light dim-level changed"
-        },
-        "tokens": [
-          {
-            "name": "value",
-            "type": "number",
-            "title": {
-              "en": "Level"
-            },
-            "example": 0.5
-          }
-        ],
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=fan&capabilities=dim.light"
-          }
-        ]
-      },
-      {
         "id": "irrigator_rain_sensor_true",
         "title": {
           "en": "Rain detected"
@@ -2095,36 +2072,6 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=fan&capabilities=onoff.light"
-          }
-        ]
-      },
-      {
-        "id": "fan_light_dim",
-        "title": {
-          "en": "Dim light"
-        },
-        "titleFormatted": {
-          "en": "Dim light to [[value]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=fan&capabilities=dim.light"
-          },
-          {
-            "name": "value",
-            "title": {
-              "en": "Level"
-            },
-            "type": "range",
-            "min": 0,
-            "max": 1,
-            "step": 0.01,
-            "value": 0.5,
-            "label": "%",
-            "labelMultiplier": 100,
-            "labelDecimals": 0
           }
         ]
       },
@@ -3968,7 +3915,7 @@
     {
       "capabilities": [
         "onoff",
-        "dim"
+        "fan_speed"
       ],
       "connectivity": [
         "cloud"

@@ -8,7 +8,7 @@ import {
 import { getFromMap } from '../../lib/TuyaOAuth2Util';
 import { FAN_CAPABILITIES_MAPPING, FAN_SETTING_LABELS } from './TuyaFanConstants';
 import TuyaOAuth2DriverWithLight from '../../lib/TuyaOAuth2DriverWithLight';
-import { StandardDeviceFlowArgs, StandardFlowArgs } from '../../types/TuyaTypes';
+import type { StandardDeviceFlowArgs } from '../../types/TuyaTypes';
 import TRANSLATIONS from './translations.json';
 
 module.exports = class TuyaOAuth2DriverFan extends TuyaOAuth2DriverWithLight {
@@ -26,10 +26,6 @@ module.exports = class TuyaOAuth2DriverFan extends TuyaOAuth2DriverWithLight {
 
     this.homey.flow.getActionCard('fan_light_off').registerRunListener(async (args: StandardDeviceFlowArgs) => {
       await args.device.triggerCapabilityListener('onoff.light', false).catch(args.device.error);
-    });
-
-    this.homey.flow.getActionCard('fan_light_dim').registerRunListener(async (args: StandardFlowArgs) => {
-      await args.device.triggerCapabilityListener('dim.light', args.value).catch(args.device.error);
     });
 
     this.homey.flow.getConditionCard('fan_light_is_on').registerRunListener((args: StandardDeviceFlowArgs) => {
@@ -61,7 +57,7 @@ module.exports = class TuyaOAuth2DriverFan extends TuyaOAuth2DriverWithLight {
       if (tuyaCapability === 'fan_speed') {
         props.store.tuya_capabilities.push(tuyaCapability);
         if (device.category === 'fsd') {
-          props.capabilities.push('dim');
+          props.capabilities.push('fan_speed');
         } else {
           props.capabilities.push('legacy_fan_speed');
         }
@@ -80,12 +76,6 @@ module.exports = class TuyaOAuth2DriverFan extends TuyaOAuth2DriverWithLight {
       props.capabilitiesOptions['onoff.light'] = TRANSLATIONS.capabilitiesOptions['onoff.light'];
     }
 
-    // Fix dim when light is present
-    if (props.capabilities.includes('dim.light')) {
-      props.capabilitiesOptions['dim'] = TRANSLATIONS.capabilitiesOptions['dim.fan'];
-      props.capabilitiesOptions['dim.light'] = TRANSLATIONS.capabilitiesOptions['dim.light'];
-    }
-
     if (!specifications || !specifications.status) {
       return props;
     }
@@ -96,7 +86,7 @@ module.exports = class TuyaOAuth2DriverFan extends TuyaOAuth2DriverWithLight {
 
       // Fan
       if (tuyaCapability === 'fan_speed_percent') {
-        props.capabilitiesOptions['dim'] = {
+        props.capabilitiesOptions['fan_speed'] = {
           min: values.min ?? 1,
           max: values.max ?? 100,
           step: values.step ?? 1,

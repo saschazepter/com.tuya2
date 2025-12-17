@@ -4,5 +4,5 @@
   "name": {
     "en": "Fan"
   },
-  "capabilities": ["onoff", "dim"]
+  "capabilities": ["onoff", "fan_speed"]
 }

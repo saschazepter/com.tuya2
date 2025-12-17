@@ -13,7 +13,7 @@ import * as TuyaFanMigrations from '../../lib/migrations/TuyaFanMigrations';
 import TuyaOAuth2DeviceWithLight from '../../lib/TuyaOAuth2DeviceWithLight';
 
 export default class TuyaOAuth2DeviceFan extends TuyaOAuth2DeviceWithLight {
-  LIGHT_DIM_CAPABILITY = 'dim.light';
+  LIGHT_DIM_CAPABILITY = 'dim';
 
   async onOAuth2Init(): Promise<void> {
     // superclass handles light capabilities, except onoff.light
@@ -34,8 +34,8 @@ export default class TuyaOAuth2DeviceFan extends TuyaOAuth2DeviceWithLight {
       this.registerCapabilityListener('legacy_fan_speed', value => this.sendCommand({ code: 'fan_speed', value }));
     }
 
-    if (this.hasCapability('dim') && this.getStoreValue('tuya_category') === 'fsd') {
-      this.registerCapabilityListener('dim', value => this.sendCommand({ code: 'fan_speed', value }));
+    if (this.hasCapability('fan_speed') && this.getStoreValue('tuya_category') === 'fsd') {
+      this.registerCapabilityListener('fan_speed', value => this.sendCommand({ code: 'fan_speed', value }));
     }
   }
 
@@ -66,7 +66,7 @@ export default class TuyaOAuth2DeviceFan extends TuyaOAuth2DeviceWithLight {
 
       if (tuyaCapability === 'fan_speed') {
         if (this.getStoreValue('tuya_category') === 'fsd') {
-          await this.safeSetCapabilityValue('dim', value);
+          await this.safeSetCapabilityValue('fan_speed', value);
         } else {
           await this.safeSetCapabilityValue('legacy_fan_speed', String(value));
         }
@@ -75,13 +75,6 @@ export default class TuyaOAuth2DeviceFan extends TuyaOAuth2DeviceWithLight {
 
     // flows
     if (this.getSetting('enable_light_support')) {
-      if (changedStatusCodes.includes('bright_value')) {
-        await this.homey.flow
-          .getDeviceTriggerCard('fan_light_dim_changed')
-          .trigger(this, { value: status['bright_value'] })
-          .catch(this.error);
-      }
-
       if (changedStatusCodes.includes('light')) {
         await this.homey.flow
           .getDeviceTriggerCard(`fan_light_onoff_${status['light']}`)
@@ -109,7 +102,7 @@ export default class TuyaOAuth2DeviceFan extends TuyaOAuth2DeviceWithLight {
         if (this.hasTuyaCapability('colour')) {
           if (!this.hasCapability('light_hue')) await this.addCapability('light_hue');
           if (!this.hasCapability('light_saturation')) await this.addCapability('light_saturation');
-          if (!this.hasCapability('dim.light')) await this.addCapability('dim.light');
+          if (!this.hasCapability('dim')) await this.addCapability('dim');
         }
         if (this.hasCapability('light_temperature') && this.hasCapability('light_hue')) {
           if (!this.hasCapability('light_mode')) await this.addCapability('light_mode');
@@ -117,7 +110,7 @@ export default class TuyaOAuth2DeviceFan extends TuyaOAuth2DeviceWithLight {
       } else {
         for (const lightCapability of [
           'onoff.light',
-          'dim.light',
+          'dim',
           'light_mode',
           'light_temperature',
           'light_hue',
