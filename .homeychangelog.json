@@ -10,5 +10,8 @@
   },
   "1.0.3": {
     "en": "Rework fan to use modern Homey capabilities, fix token issues"
+  },
+  "1.0.4": {
+    "en": "Prevent app crash in certain scenario's"
   }
 }
