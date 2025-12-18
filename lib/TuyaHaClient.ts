@@ -448,7 +448,7 @@ export default class TuyaHaClient extends OAuth2Client<TuyaHaToken> {
       const registeredDevice = this.registeredDevices.get(deviceId);
       const registeredOtherDevice = this.registeredOtherDevices.get(deviceId);
       if (registeredDevice === undefined && registeredOtherDevice === undefined) {
-        this.log('No matching devices found for webhook data');
+        this.log('No matching devices found for MQTT data');
         return;
       }
 
