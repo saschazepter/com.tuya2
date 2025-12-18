@@ -430,7 +430,7 @@ export default class TuyaHaClient extends OAuth2Client<TuyaHaToken> {
 
       this.log('Incoming MQTT:', json.data);
 
-      const deviceId = json.data.devId;
+      const deviceId = json.data.devId ?? json.data.bizData.devId;
       const dataPoints = json.data.status ?? [];
 
       const status: { [key: string]: unknown } = {};
@@ -443,6 +443,11 @@ export default class TuyaHaClient extends OAuth2Client<TuyaHaToken> {
         }
         status[dataPoint.code] = dataPoint.value;
         changedStatusCodes.push(dataPoint.code);
+      }
+
+      if (['online', 'offline'].includes(json.data.bizCode)) {
+        status['online'] = json.data.bizCode === 'online';
+        changedStatusCodes.push('online');
       }
 
       const registeredDevice = this.registeredDevices.get(deviceId);

@@ -45,13 +45,21 @@ export type TuyaMqttConfigResponse = {
 
 export type TuyaMqttMessage = {
   protocol: number;
-  data: {
-    devId: string;
-    dataId: string;
-    productKey: string;
-    status: TuyaMqttStatus;
-  };
+  data: TuyaMqttMessageData & TuyaMqttOnlineData;
   t: number;
+};
+
+type TuyaMqttMessageData = {
+  devId: string;
+  dataId: string;
+  productKey: string;
+  status: TuyaMqttStatus;
+};
+
+export type TuyaMqttOnlineData = {
+  bizCode: 'online' | 'offline';
+  bizData: { devId: string; time: number };
+  ts: number;
 };
 
 export type TuyaMqttStatus = TuyaMqttStatusDataPoint[];
