@@ -1,3 +1,4 @@
 # Ignore artifacts:
 app.json
 locales/
+docs/
