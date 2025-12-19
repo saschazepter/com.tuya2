@@ -183,9 +183,9 @@ export default class TuyaOAuth2Driver extends OAuth2Driver<TuyaHaClient> {
         .then(res => {
           if (res !== undefined) {
             if (device !== undefined) {
-              device.setAvailable();
+              device.setAvailable().catch(this.error);
             }
-            return session.nextView();
+            return session.nextView().catch(this.error);
           }
         })
         .finally(() => {
