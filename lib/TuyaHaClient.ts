@@ -351,22 +351,24 @@ export default class TuyaHaClient extends OAuth2Client<TuyaHaToken> {
   /*
    * Infrared
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async getRemotes(infraredControllerId: string): Promise<TuyaIrRemoteResponse[]> {
     return [];
     // return this._get(`/v2.0/infrareds/${infraredControllerId}/remotes`);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async getRemoteKeys(infraredControllerId: string, infraredRemoteId: string): Promise<TuyaIrRemoteKeysResponse> {
     throw new Error('Not implemented');
     // return this._get(`/v2.0/infrareds/${infraredControllerId}/remotes/${infraredRemoteId}/keys`);
   }
 
   async sendKeyCommand(
-    infraredControllerId: string,
-    infraredRemoteId: string,
-    categoryId: number,
-    keyId?: number,
-    keyString?: string,
+    infraredControllerId: string, // eslint-disable-line @typescript-eslint/no-unused-vars
+    infraredRemoteId: string, // eslint-disable-line @typescript-eslint/no-unused-vars
+    categoryId: number, // eslint-disable-line @typescript-eslint/no-unused-vars
+    keyId?: number, // eslint-disable-line @typescript-eslint/no-unused-vars
+    keyString?: string, // eslint-disable-line @typescript-eslint/no-unused-vars
   ): Promise<boolean> {
     throw new Error('Not implemented');
     // return this._post(`/v2.0/infrareds/${infraredControllerId}/remotes/${infraredRemoteId}/raw/command`, {

@@ -5454,6 +5454,7 @@
         "en": "Infrared Remote",
         "nl": "Infrarood Afstandsbediening"
       },
+      "deprecated": true,
       "id": "infrared_remote",
       "settings": [
         {
