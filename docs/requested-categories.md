@@ -75,6 +75,9 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
   - qccdz - Not documented
     - EV Portable Charger
 
+  - qxj - Not documented
+    - T & H Sensor with external probe
+
   - wkf - Not documented
     - ZigBee Tuya TRV Temperatur regler
 
