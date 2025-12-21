@@ -36,11 +36,6 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
 
 ## Not yet planned
 
-  - wnykq - IR devices (API currently unavailable)
-    - Maxicool/Mitshubishi split unit Airco
-    - IR controlled airco
-    - Nedis Smart Wi-Fi Remote Control
-
   - bh - Smart kettle
     - WeeKett kettle
 
