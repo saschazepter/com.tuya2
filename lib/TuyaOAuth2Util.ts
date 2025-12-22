@@ -254,7 +254,8 @@ export async function onSettings<T extends { [key: string]: unknown }>(
   event: SettingsEvent<T>,
   settingLabels: Record<keyof T, Translation>,
 ): Promise<string | void> {
-  const [unsupportedSettings, unsupportedValues] = await sendSettings(device, event);
+  const filteredEvent = filterOutHomeySettings(device, event);
+  const [unsupportedSettings, unsupportedValues] = await sendSettings(device, filteredEvent);
   return reportUnsupportedSettings(
     device,
     unsupportedSettings as string[],
