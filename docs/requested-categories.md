@@ -68,6 +68,9 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
     - Access Control TF1/TF2/TF3 AliExpress
     - WIFI Access control
 
+  - ms - Residential lock
+    - WiFi Door Lock
+
   - sd - Robot vacuum
     - Blaupunkt bluebot xtreme
 
