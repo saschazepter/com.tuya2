@@ -25,5 +25,8 @@
   },
   "1.1.2": {
     "en": "Improve settings handling"
+  },
+  "1.1.3": {
+    "en": "Improve error messages, fix reverse fan direction for certain fans"
   }
 }
