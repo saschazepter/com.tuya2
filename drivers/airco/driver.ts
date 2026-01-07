@@ -18,7 +18,7 @@ module.exports = class TuyaOAuth2DriverAirco extends TuyaOAuth2Driver {
   async onInit(): Promise<void> {
     await super.onInit();
 
-    this.homey.flow.getActionCard('heater_set_child_lock').registerRunListener(async (args: DeviceArgs & ValueArgs) => {
+    this.homey.flow.getActionCard('airco_set_child_lock').registerRunListener(async (args: DeviceArgs & ValueArgs) => {
       await args.device.triggerCapabilityListener('child_lock', args.value);
     });
   }
