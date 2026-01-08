@@ -3,6 +3,11 @@
 Tuya devices are placed into categories, based on which we can add device support.
 All defined categories can be found at https://developer.tuya.com/en/docs/iot/standarddescription?id=K9i5ql6waswzq.
 
+## Release 1.2.0
+
+  - xktyd - Not documented
+    - Tuya Star Projector
+
 ## Release 1.1.0
 
   - co2bj - CO2 Detector
@@ -92,9 +97,6 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
 
   - wxml - Not documented
     - Wifi door chime
-
-  - xktyd - Not documented
-    - Tuya Star Projector
 
   - xxj - Diffuser
     - Geurdiffuser WiFi AliExpress

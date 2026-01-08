@@ -4,6 +4,7 @@ import {
   TuyaDeviceResponse,
   TuyaDeviceSpecificationResponse,
 } from '../types/TuyaApiTypes';
+import { DEVICE_CATEGORIES } from './TuyaOAuth2Constants';
 
 /**
  * Handles all light-related capabilities, except onoff
@@ -58,7 +59,7 @@ export default class TuyaOAuth2DriverWithLight extends TuyaOAuth2Driver {
     // Category Specifications
     // The main light category has both (0,255) and (0,1000) for backwards compatibility
     // Other categories use only (0,1000)
-    if (device.category === 'dj') {
+    if (device.category === DEVICE_CATEGORIES.LIGHTING.LIGHT) {
       props.store.tuya_brightness = { min: 25, max: 255, scale: 0, step: 1 };
       props.store.tuya_temperature = { min: 0, max: 255, scale: 0, step: 1 };
       props.store.tuya_colour = {
@@ -66,6 +67,14 @@ export default class TuyaOAuth2DriverWithLight extends TuyaOAuth2Driver {
         s: { min: 0, max: 255, scale: 0, step: 1 },
         v: { min: 0, max: 255, scale: 0, step: 1 },
       };
+      props.store.tuya_brightness_v2 = { min: 10, max: 1000, scale: 0, step: 1 };
+      props.store.tuya_temperature_v2 = { min: 0, max: 1000, scale: 0, step: 1 };
+      props.store.tuya_colour_v2 = {
+        h: { min: 0, max: 360, scale: 0, step: 1 },
+        s: { min: 0, max: 1000, scale: 0, step: 1 },
+        v: { min: 0, max: 1000, scale: 0, step: 1 },
+      };
+    } else if (device.category === DEVICE_CATEGORIES.UNDOCUMENTED.STAR_PROJECTOR) {
       props.store.tuya_brightness_v2 = { min: 10, max: 1000, scale: 0, step: 1 };
       props.store.tuya_temperature_v2 = { min: 0, max: 1000, scale: 0, step: 1 };
       props.store.tuya_colour_v2 = {

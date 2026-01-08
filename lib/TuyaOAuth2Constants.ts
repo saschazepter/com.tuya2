@@ -127,6 +127,9 @@ export const DEVICE_CATEGORIES = {
     PROJECTOR: 'tyy',
     // OUTDOOR_TRAVEL
   },
+  UNDOCUMENTED: {
+    STAR_PROJECTOR: 'xktyd',
+  },
 } as const;
 
 // https://developer.tuya.com/en/docs/iot/error-code?id=K989ruxx88swc
