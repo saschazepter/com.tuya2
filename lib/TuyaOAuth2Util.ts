@@ -129,8 +129,14 @@ export async function handleScaleSetting<T extends string, S extends Record<T, s
     return;
   }
 
-  const oldScaling = 10.0 ** Number.parseInt(event.oldSettings[settingKey] ?? '0', 10);
-  const newScaling = 10.0 ** Number.parseInt(event.newSettings[settingKey] ?? '0', 10);
+  const oldSetting = event.oldSettings[settingKey] ?? '0';
+  const oldScaling = oldSetting.startsWith('value')
+    ? parseFloat(oldSetting.slice('value'.length)) // Use the value directly
+    : 10.0 ** Number.parseInt(oldSetting, 10); // Use the value as an exponent of 10 (like the Tuya API)
+  const newSetting = event.newSettings[settingKey] ?? '0';
+  const newScaling = newSetting.startsWith('value')
+    ? parseFloat(newSetting.slice('value'.length)) // Use the value directly
+    : 10.0 ** Number.parseInt(newSetting, 10); // Use the value as an exponent of 10 (like the Tuya API)
   const oldValue = device.getCapabilityValue(homeyCapability);
   const newValue = (oldValue * oldScaling) / newScaling;
 

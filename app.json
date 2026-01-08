@@ -8480,6 +8480,12 @@
           "value": "0",
           "values": [
             {
+              "id": "value0.2",
+              "label": {
+                "en": "5"
+              }
+            },
+            {
               "id": "0",
               "label": {
                 "en": "1"
@@ -8516,6 +8522,12 @@
           "type": "dropdown",
           "value": "0",
           "values": [
+            {
+              "id": "value0.2",
+              "label": {
+                "en": "5"
+              }
+            },
             {
               "id": "0",
               "label": {

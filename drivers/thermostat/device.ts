@@ -23,8 +23,11 @@ module.exports = class TuyaOAuth2DeviceThermostat extends TuyaOAuth2Device {
 
     if (this.hasCapability('target_temperature')) {
       this.registerCapabilityListener('target_temperature', value => {
-        const setting = 'target_temperature_scaling';
-        const scaling = 10.0 ** parseInt(this.getSetting(setting), 10);
+        const settingId = 'target_temperature_scaling';
+        const setting = this.getSetting(settingId) as string;
+        const scaling = setting.startsWith('value')
+          ? parseFloat(setting.slice('value'.length)) // Use the value directly
+          : 10.0 ** Number.parseInt(setting, 10); // Use the value as an exponent of 10 (like the Tuya API)
         return this.sendCommand({ code: 'temp_set', value: Math.round(value * scaling) });
       });
     }
@@ -45,8 +48,11 @@ module.exports = class TuyaOAuth2DeviceThermostat extends TuyaOAuth2Device {
       }
 
       if (constIncludes(THERMOSTAT_CAPABILITIES.read_scaled, tuyaCapability)) {
-        const setting = `${homeyCapability}_scaling`;
-        const scaling = 10.0 ** parseInt(this.getSetting(setting), 10);
+        const settingId = `${homeyCapability}_scaling`;
+        const setting = this.getSetting(settingId) as string;
+        const scaling = setting.startsWith('value')
+          ? parseFloat(setting.slice('value'.length)) // Use the value directly
+          : 10.0 ** Number.parseInt(setting, 10); // Use the value as an exponent of 10 (like the Tuya API)
         await this.safeSetCapabilityValue(homeyCapability, (value as number) / scaling);
       }
 
