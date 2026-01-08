@@ -34,5 +34,8 @@
   },
   "1.2.1": {
     "en": "Add support for star projectors (using the light category), detect more different cameras, add additional scaling options for thermostat devices, improve pairing flow when there are large amounts of Tuya devices available, fix airco child lock flow card action."
+  },
+  "1.2.2": {
+    "en": "Add support for star projectors (using the light category), detect more different cameras, add additional scaling options for thermostat devices, improve pairing flow when there are large amounts of Tuya devices available, fix airco child lock flow card action."
   }
 }
