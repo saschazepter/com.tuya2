@@ -11,7 +11,10 @@ import { SENSOR_PM25_CAPABILITY_MAPPING } from './SensorPm25Constants';
 import { CLIMATE_SENSOR_CAPABILITIES } from '../sensor_climate/TuyaClimateSensorConstants';
 
 module.exports = class TuyaOAuth2DriverSensorPM25 extends TuyaOAuth2DriverSensor {
-  TUYA_DEVICE_CATEGORIES = [DEVICE_CATEGORIES.SECURITY_VIDEO_SURV.PM25_DETECTOR, 'pm2.5'] as const;
+  TUYA_DEVICE_CATEGORIES = [
+    DEVICE_CATEGORIES.SECURITY_VIDEO_SURV.PM25_DETECTOR,
+    DEVICE_CATEGORIES.UNDOCUMENTED.PM25,
+  ] as const;
 
   onTuyaPairListDeviceProperties(
     device: TuyaDeviceResponse,

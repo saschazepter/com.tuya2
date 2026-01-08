@@ -26,7 +26,6 @@ module.exports = class TuyaOAuth2DriverLight extends TuyaOAuth2DriverWithLight {
     DEVICE_CATEGORIES.LIGHTING.CEILING_FAN_LIGHT,
     DEVICE_CATEGORIES.LIGHTING.SOLAR_LIGHT,
     DEVICE_CATEGORIES.UNDOCUMENTED.STAR_PROJECTOR,
-    // TODO
   ] as const;
 
   async onInit(): Promise<void> {

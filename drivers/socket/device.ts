@@ -1,4 +1,5 @@
 import { Device, FlowCardTriggerDevice } from 'homey';
+import { DEVICE_CATEGORIES } from '../../lib/TuyaOAuth2Constants';
 
 import TuyaOAuth2Device from '../../lib/TuyaOAuth2Device';
 import * as TuyaOAuth2Util from '../../lib/TuyaOAuth2Util';
@@ -155,7 +156,7 @@ export default class TuyaOAuth2DeviceSocket extends TuyaOAuth2Device {
       'relay_status',
     ]);
 
-    if (this.getStoreValue('tuya_category') === 'tdq') {
+    if (this.getStoreValue('tuya_category') === DEVICE_CATEGORIES.UNDOCUMENTED.SWITCH) {
       const mappedNewSettings = { ...tuyaSettingsEvent.newSettings };
 
       // Remap the relay_status

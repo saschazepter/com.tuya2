@@ -10,7 +10,10 @@ import { IRRIGATOR_CAPABILITIES, IRRIGATOR_CAPABILITIES_MAPPING } from './TuyaIr
 import type { StandardDeviceFlowArgs } from '../../types/TuyaTypes';
 
 module.exports = class TuyaOAuth2DriverIrrigator extends TuyaOAuth2Driver {
-  TUYA_DEVICE_CATEGORIES = [DEVICE_CATEGORIES.SMALL_HOME_APPLIANCES.IRRIGATOR, 'sfkzq'] as const;
+  TUYA_DEVICE_CATEGORIES = [
+    DEVICE_CATEGORIES.SMALL_HOME_APPLIANCES.IRRIGATOR,
+    DEVICE_CATEGORIES.UNDOCUMENTED.IRRIGATOR,
+  ] as const;
 
   async onInit(): Promise<void> {
     await super.onInit();

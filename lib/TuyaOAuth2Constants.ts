@@ -128,7 +128,10 @@ export const DEVICE_CATEGORIES = {
     // OUTDOOR_TRAVEL
   },
   UNDOCUMENTED: {
+    IRRIGATOR: 'sfkzq',
+    PM25: 'pm2.5',
     STAR_PROJECTOR: 'xktyd',
+    SWITCH: 'tdq',
   },
 } as const;
 

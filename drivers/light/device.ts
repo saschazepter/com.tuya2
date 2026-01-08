@@ -1,5 +1,5 @@
 import * as TuyaLightMigrations from '../../lib/migrations/TuyaLightMigrations';
-import { TUYA_PERCENTAGE_SCALING } from '../../lib/TuyaOAuth2Constants';
+import { DEVICE_CATEGORIES, TUYA_PERCENTAGE_SCALING } from '../../lib/TuyaOAuth2Constants';
 import { SettingsEvent, TuyaStatus } from '../../types/TuyaTypes';
 import { HomeyLightSettings, LIGHT_SETTING_LABELS, PIR_CAPABILITIES, TuyaLightSettings } from './TuyaLightConstants';
 import TuyaOAuth2DeviceWithLight from '../../lib/TuyaOAuth2DeviceWithLight';
@@ -12,7 +12,7 @@ export default class TuyaOAuth2DeviceLight extends TuyaOAuth2DeviceWithLight {
   }
 
   async onOAuth2Init(): Promise<void> {
-    if (this.getStoreValue('tuya_category') === 'dj') {
+    if (this.getStoreValue('tuya_category') === DEVICE_CATEGORIES.LIGHTING.LIGHT) {
       // Check if we need to use v2 Tuya capabilities
       if (this.hasTuyaCapability('bright_value_v2')) {
         this.LIGHT_DIM_TUYA_CAPABILITY = 'bright_value_v2';

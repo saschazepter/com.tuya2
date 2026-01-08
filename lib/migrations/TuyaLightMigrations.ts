@@ -1,4 +1,5 @@
 import type TuyaOAuth2DeviceLight from '../../drivers/light/device';
+import { DEVICE_CATEGORIES } from '../TuyaOAuth2Constants';
 import { executeMigration } from './MigrationStore';
 
 export async function performMigrations(device: TuyaOAuth2DeviceLight): Promise<void> {
@@ -120,7 +121,7 @@ async function fixUndefinedSpecifications(device: TuyaOAuth2DeviceLight): Promis
     const category = device.getStoreValue('tuya_category');
 
     // Set fallback values to the defaults
-    if (category === 'dj') {
+    if (category === DEVICE_CATEGORIES.LIGHTING.LIGHT) {
       await device.setStoreValue('tuya_brightness', { min: 25, max: 255, scale: 0, step: 1 });
       await device.setStoreValue('tuya_temperature', { min: 0, max: 255, scale: 0, step: 1 });
       await device.setStoreValue('tuya_colour', {

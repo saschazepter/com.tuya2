@@ -1,3 +1,4 @@
+import { DEVICE_CATEGORIES } from '../../lib/TuyaOAuth2Constants';
 import { SettingsEvent, TuyaStatus } from '../../types/TuyaTypes';
 import {
   FAN_CAPABILITIES,
@@ -33,7 +34,10 @@ export default class TuyaOAuth2DeviceFan extends TuyaOAuth2DeviceWithLight {
       this.registerCapabilityListener('legacy_fan_speed', value => this.sendCommand({ code: 'fan_speed', value }));
     }
 
-    if (this.hasCapability('fan_speed') && this.getStoreValue('tuya_category') === 'fsd') {
+    if (
+      this.hasCapability('fan_speed') &&
+      this.getStoreValue('tuya_category') === DEVICE_CATEGORIES.LIGHTING.CEILING_FAN_LIGHT
+    ) {
       this.registerCapabilityListener('fan_speed', value => this.sendCommand({ code: 'fan_speed', value }));
     }
   }
@@ -65,7 +69,7 @@ export default class TuyaOAuth2DeviceFan extends TuyaOAuth2DeviceWithLight {
       }
 
       if (tuyaCapability === 'fan_speed') {
-        if (this.getStoreValue('tuya_category') === 'fsd') {
+        if (this.getStoreValue('tuya_category') === DEVICE_CATEGORIES.LIGHTING.CEILING_FAN_LIGHT) {
           await this.safeSetCapabilityValue('fan_speed', value);
         } else {
           await this.safeSetCapabilityValue('legacy_fan_speed', String(value));

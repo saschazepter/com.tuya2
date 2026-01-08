@@ -20,7 +20,7 @@ module.exports = class TuyaOAuth2DriverSocket extends TuyaOAuth2Driver {
     DEVICE_CATEGORIES.ELECTRICAL_PRODUCTS.SOCKET,
     DEVICE_CATEGORIES.ELECTRICAL_PRODUCTS.POWER_STRIP,
     DEVICE_CATEGORIES.ELECTRICAL_PRODUCTS.SWITCH,
-    'tdq', // Undocumented switch category
+    DEVICE_CATEGORIES.UNDOCUMENTED.SWITCH,
   ] as const;
 
   async onInit(): Promise<void> {
