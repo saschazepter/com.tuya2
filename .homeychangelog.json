@@ -40,5 +40,8 @@
   },
   "1.2.3": {
     "en": "Fix thermostat capability options when adjusting scaling"
+  },
+  "1.2.4": {
+    "en": "Fix fan direction flow card"
   }
 }
