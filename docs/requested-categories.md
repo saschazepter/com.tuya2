@@ -70,6 +70,9 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
     - Proscenic A9
     - Zedar L600
 
+  - ldcg - Luminance Sensor
+    - Generic light sensor
+
   - mal - Alarm Host
     - Supplement Staniot Security Panel 3
     - Houseguard Luma hub
