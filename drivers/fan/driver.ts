@@ -29,7 +29,7 @@ module.exports = class TuyaOAuth2DriverFan extends TuyaOAuth2DriverWithLight {
     });
 
     this.homey.flow.getConditionCard('fan_light_is_on').registerRunListener((args: StandardDeviceFlowArgs) => {
-      return args.device.getCapabilityValue('onoff.light').catch(args.device.error);
+      return args.device.getCapabilityValue('onoff.light');
     });
 
     this.homey.flow.getActionCard('fan_fan_direction').registerRunListener(async (args: StandardFlowArgs) => {
