@@ -63,7 +63,7 @@ export type TuyaMqttBizMessageData = {
 };
 
 export type TuyaMqttStatus = TuyaMqttStatusDataPoint[];
-export type TuyaMqttStatusDataPoint = { '1': boolean; code: string; t: number; value: unknown };
+export type TuyaMqttStatusDataPoint = { code: string; t: number; value: unknown };
 
 export type TuyaHaStatusResponse = {
   category: string;
