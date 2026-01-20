@@ -62,7 +62,7 @@ module.exports = class TuyaOAuth2DriverFan extends TuyaOAuth2DriverWithLight {
 
       if (tuyaCapability === 'fan_speed') {
         props.store.tuya_capabilities.push(tuyaCapability);
-        if (device.category === 'fsd') {
+        if (device.category === DEVICE_CATEGORIES.LIGHTING.CEILING_FAN_LIGHT) {
           props.capabilities.push('fan_speed');
         } else {
           props.capabilities.push('legacy_fan_speed');
