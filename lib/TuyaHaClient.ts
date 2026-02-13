@@ -487,7 +487,11 @@ export default class TuyaHaClient extends OAuth2Client<TuyaHaToken> {
 
       for (const dataPoint of dataPoints) {
         const unknownDatapoint = dataPoint as Record<`${number}`, unknown>;
-        if (typeof unknownDatapoint === 'object' && Object.keys(unknownDatapoint).length === 1 && Number.isInteger(Object.keys(unknownDatapoint)[0])) {
+        if (
+          typeof unknownDatapoint === 'object' &&
+          Object.keys(unknownDatapoint).length === 1 &&
+          Number.isInteger(Object.keys(unknownDatapoint)[0])
+        ) {
           // When in form of `{"4":"low"}`, skip.
           continue;
         }
