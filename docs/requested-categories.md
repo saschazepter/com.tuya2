@@ -92,6 +92,7 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
   - mk - Access control
     - Access Control TF1/TF2/TF3 AliExpress
     - WIFI Access control
+    - WIFI Face Access
 
   - ms - Residential lock
     - WiFi Door Lock
