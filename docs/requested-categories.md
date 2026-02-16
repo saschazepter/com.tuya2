@@ -45,6 +45,9 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
     - WeeKett kettle
     - Kogan Smart kettle
 
+  - bzyd - Not documented
+    - Nodiee Sleep Assist Smart PRO
+
   - cjkg - Scene switch
     - MOES 6 gang wall light + scene switch
 
