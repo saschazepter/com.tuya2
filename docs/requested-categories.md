@@ -106,6 +106,7 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
   - sd - Robot vacuum
     - Blaupunkt bluebot xtreme
     - Ilife A30 pro robotstofzuiger
+    - Neatsvor X520
 
   - sj - Water Detector
     - Water sensor
