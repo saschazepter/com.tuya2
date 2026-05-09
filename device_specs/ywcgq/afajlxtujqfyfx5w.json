@@ -1,0 +1,145 @@
+{
+  "device": {
+    "active_time": 1775312206,
+    "biz_type": 0,
+    "category": "ywcgq",
+    "create_time": 1775312206,
+    "icon": "smart/icon/bay1610529967139OoVI/f355bb91b792263231eda1138f8750ee.png",
+    "id": "bfb5358bf49e80e376eycz",
+    "ip": "",
+    "lat": "",
+    "local_key": "",
+    "lon": "",
+    "name": "Waterontharder",
+    "online": true,
+    "owner_id": "",
+    "product_id": "afajlxtujqfyfx5w",
+    "product_name": "Tank A Level",
+    "status": [
+      {
+        "code": "liquid_state",
+        "value": "normal"
+      },
+      {
+        "code": "liquid_depth",
+        "value": 40
+      },
+      {
+        "code": "max_set",
+        "value": 90
+      },
+      {
+        "code": "mini_set",
+        "value": 10
+      },
+      {
+        "code": "upper_switch",
+        "value": false
+      },
+      {
+        "code": "lower_switch",
+        "value": false
+      },
+      {
+        "code": "installation_height",
+        "value": 903
+      },
+      {
+        "code": "liquid_depth_max",
+        "value": 100
+      },
+      {
+        "code": "liquid_level_percent",
+        "value": 50
+      }
+    ],
+    "sub": false,
+    "time_zone": "+02:00",
+    "uid": "",
+    "update_time": 1775312206,
+    "uuid": ""
+  },
+  "specifications": {
+    "category": "ywcgq",
+    "functions": [
+      {
+        "code": "max_set",
+        "type": "Integer",
+        "values": "{\"unit\":\"%\",\"min\":0,\"max\":100,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "mini_set",
+        "type": "Integer",
+        "values": "{\"unit\":\"%\",\"min\":0,\"max\":100,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "upper_switch",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "lower_switch",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "installation_height",
+        "type": "Integer",
+        "values": "{\"unit\":\"m\",\"min\":100,\"max\":3000,\"scale\":3,\"step\":1}"
+      },
+      {
+        "code": "liquid_depth_max",
+        "type": "Integer",
+        "values": "{\"unit\":\"m\",\"min\":100,\"max\":2900,\"scale\":3,\"step\":1}"
+      }
+    ],
+    "status": [
+      {
+        "code": "liquid_state",
+        "type": "Enum",
+        "values": "{\"range\":[\"normal\",\"lower_alarm\",\"upper_alarm\"]}"
+      },
+      {
+        "code": "liquid_depth",
+        "type": "Integer",
+        "values": "{\"unit\":\"m\",\"min\":0,\"max\":10000,\"scale\":2,\"step\":1}"
+      },
+      {
+        "code": "max_set",
+        "type": "Integer",
+        "values": "{\"unit\":\"%\",\"min\":0,\"max\":100,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "mini_set",
+        "type": "Integer",
+        "values": "{\"unit\":\"%\",\"min\":0,\"max\":100,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "upper_switch",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "lower_switch",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "installation_height",
+        "type": "Integer",
+        "values": "{\"unit\":\"m\",\"min\":100,\"max\":3000,\"scale\":3,\"step\":1}"
+      },
+      {
+        "code": "liquid_depth_max",
+        "type": "Integer",
+        "values": "{\"unit\":\"m\",\"min\":100,\"max\":2900,\"scale\":3,\"step\":1}"
+      },
+      {
+        "code": "liquid_level_percent",
+        "type": "Integer",
+        "values": "{\"unit\":\"%\",\"min\":0,\"max\":100,\"scale\":0,\"step\":1}"
+      }
+    ]
+  },
+  "data_points": []
+}

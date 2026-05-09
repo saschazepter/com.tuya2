@@ -1,0 +1,53 @@
+{
+  "device": {
+    "active_time": 1749490802,
+    "biz_type": 0,
+    "category": "sj",
+    "create_time": 1749490802,
+    "icon": "smart/icon/ay15427647462366edzT/64fb716983297a0df40deae40a719aef.png",
+    "id": "eb8d29451434231ec5krdu",
+    "ip": "",
+    "lat": "",
+    "local_key": "",
+    "lon": "",
+    "model": "免开发水浸不带声音",
+    "name": "Water leak sensor",
+    "node_id": "a4c13822c06d816c",
+    "online": true,
+    "owner_id": "",
+    "product_id": "upgcbody",
+    "product_name": "Water leak sensor",
+    "status": [
+      {
+        "code": "watersensor_state",
+        "value": "normal"
+      },
+      {
+        "code": "battery_percentage",
+        "value": 56
+      }
+    ],
+    "sub": true,
+    "time_zone": "-04:00",
+    "uid": "",
+    "update_time": 1749490802,
+    "uuid": ""
+  },
+  "specifications": {
+    "category": "sj",
+    "functions": [],
+    "status": [
+      {
+        "code": "watersensor_state",
+        "type": "Enum",
+        "values": "{\"range\":[\"alarm\",\"normal\"]}"
+      },
+      {
+        "code": "battery_percentage",
+        "type": "Integer",
+        "values": "{\"unit\":\"%\",\"min\":0,\"max\":100,\"scale\":0,\"step\":1}"
+      }
+    ]
+  },
+  "data_points": []
+}

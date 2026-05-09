@@ -1,0 +1,31 @@
+{
+  "device": {
+    "active_time": 1777665420,
+    "biz_type": 0,
+    "category": "jsq",
+    "create_time": 1777665420,
+    "icon": "smart/icon/bay1622636970661d2Uf/242f34df26c6e9c5aa12e9cf00d55f48.png",
+    "id": "bfc4b18788da73c4cfcfwp",
+    "ip": "",
+    "lat": "",
+    "local_key": "",
+    "lon": "",
+    "name": "Luchtbevochtiger CA-806 Smart",
+    "online": true,
+    "owner_id": "",
+    "product_id": "w0x3rcdtfrhoiemh",
+    "product_name": "Humidifier CA-806 Smart",
+    "sub": false,
+    "time_zone": "+02:00",
+    "uid": "",
+    "update_time": 1777665420,
+    "uuid": "",
+    "status": []
+  },
+  "specifications": {
+    "category": "",
+    "functions": [],
+    "status": []
+  },
+  "data_points": []
+}

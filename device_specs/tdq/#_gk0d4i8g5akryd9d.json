@@ -1,0 +1,30 @@
+{
+  "device": {
+    "active_time": 1777810826,
+    "biz_type": 0,
+    "category": "tdq",
+    "create_time": 1777810826,
+    "icon": "smart/icon/ay1573546958261faWcj/09227d92c014f30eb11e0d5a3f7812a6.png",
+    "id": "bfe71ef805d9277ec5roxn",
+    "ip": "<redacted>",
+    "lat": "<redacted>",
+    "local_key": "<redacted>",
+    "lon": "<redacted>",
+    "name": "Motion Sensor",
+    "online": true,
+    "owner_id": "<redacted>",
+    "product_id": "gk0d4i8g5akryd9d",
+    "product_name": "Motion Sensor",
+    "sub": false,
+    "time_zone": "+02:00",
+    "uid": "<redacted>",
+    "update_time": 1777810826,
+    "uuid": "<redacted>"
+  },
+  "specifications": {
+    "category": "",
+    "functions": [],
+    "status": []
+  },
+  "data_points": []
+}

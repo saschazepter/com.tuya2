@@ -1,0 +1,58 @@
+{
+  "device": {
+    "active_time": 1727023060,
+    "biz_type": 18,
+    "category": "ggq",
+    "create_time": 1727023060,
+    "icon": "smart/icon/bay1604286101943tD7U/1709028099497afdcf401.png",
+    "id": "bf3d56ba83b3bf9257psrn",
+    "ip": "",
+    "lat": "",
+    "local_key": "",
+    "lon": "",
+    "model": "106W",
+    "name": "Pompe cuisine",
+    "online": true,
+    "owner_id": "",
+    "product_id": "uabva2zng0w1jmna",
+    "product_name": "WiFi Watering Pump",
+    "status": [
+      {
+        "code": "switch",
+        "value": false
+      }
+    ],
+    "sub": false,
+    "time_zone": "+02:00",
+    "uid": "",
+    "update_time": 1727023060,
+    "uuid": ""
+  },
+  "specifications": {
+    "category": "ggq",
+    "functions": [
+      {
+        "code": "switch",
+        "type": "Boolean",
+        "values": "{}"
+      }
+    ],
+    "status": [
+      {
+        "code": "switch",
+        "type": "Boolean",
+        "values": "{}"
+      }
+    ]
+  },
+  "data_points": [
+    {
+      "code": "switch",
+      "custom_name": "",
+      "dp_id": 1,
+      "time": 0,
+      "type": "Boolean",
+      "value": "{}"
+    }
+  ]
+}
