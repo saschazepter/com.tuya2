@@ -1,0 +1,62 @@
+{
+  "device": {
+    "active_time": 1652728770,
+    "biz_type": 0,
+    "category": "cz",
+    "create_time": 1652728770,
+    "icon": "smart/icon/1534303362d2e02jisz6d_0.jpg",
+    "id": "86544400bcddc2a38696",
+    "ip": "<redacted>",
+    "lat": "<redacted>",
+    "local_key": "<redacted>",
+    "lon": "<redacted>",
+    "name": "Sprinklers",
+    "online": true,
+    "owner_id": "<redacted>",
+    "product_id": "koiGhMKwLf2ZP81g",
+    "product_name": "Valve",
+    "status": [
+      {
+        "code": "switch",
+        "value": false
+      },
+      {
+        "code": "countdown_1",
+        "value": 0
+      }
+    ],
+    "sub": false,
+    "time_zone": "+01:00",
+    "uid": "<redacted>",
+    "update_time": 1652728770,
+    "uuid": "<redacted>"
+  },
+  "specifications": {
+    "category": "cz",
+    "functions": [
+      {
+        "code": "switch",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "countdown_1",
+        "type": "Integer",
+        "values": "{\"unit\":\"s\",\"min\":0,\"max\":86400,\"scale\":0,\"step\":1}"
+      }
+    ],
+    "status": [
+      {
+        "code": "switch",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "countdown_1",
+        "type": "Integer",
+        "values": "{\"unit\":\"s\",\"min\":0,\"max\":86400,\"scale\":0,\"step\":1}"
+      }
+    ]
+  },
+  "data_points": []
+}
