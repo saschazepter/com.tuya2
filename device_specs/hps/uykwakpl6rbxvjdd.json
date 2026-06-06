@@ -1,0 +1,136 @@
+{
+  "device": {
+    "active_time": 1772412564,
+    "biz_type": 18,
+    "category": "hps",
+    "create_time": 1772412564,
+    "icon": "smart/icon/ay1531985537002uUUZI/fa2f5fa67e94669dbd67b37fe62debee.png",
+    "id": "eb667b03d6ea025226gzu2",
+    "ip": "",
+    "lat": "",
+    "local_key": "",
+    "lon": "",
+    "model": "ZG-205W",
+    "name": "Sensor da Sala 2",
+    "online": true,
+    "owner_id": "",
+    "product_id": "uykwakpl6rbxvjdd",
+    "product_name": "Human presence sensor",
+    "status": [
+      {
+        "code": "presence_state",
+        "value": "none"
+      },
+      {
+        "code": "sensitivity",
+        "value": 0
+      },
+      {
+        "code": "near_detection",
+        "value": 600
+      },
+      {
+        "code": "far_detection",
+        "value": 600
+      },
+      {
+        "code": "illuminance_value",
+        "value": 0
+      }
+    ],
+    "sub": false,
+    "time_zone": "-03:00",
+    "uid": "",
+    "update_time": 1772412564,
+    "uuid": ""
+  },
+  "specifications": {
+    "category": "hps",
+    "functions": [
+      {
+        "code": "sensitivity",
+        "type": "Integer",
+        "values": "{\"unit\":\"x\",\"min\":0,\"max\":10,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "near_detection",
+        "type": "Integer",
+        "values": "{\"unit\":\"cm\",\"min\":0,\"max\":1000,\"scale\":0,\"step\":10}"
+      },
+      {
+        "code": "far_detection",
+        "type": "Integer",
+        "values": "{\"unit\":\"cm\",\"min\":0,\"max\":600,\"scale\":0,\"step\":10}"
+      }
+    ],
+    "status": [
+      {
+        "code": "presence_state",
+        "type": "Enum",
+        "values": "{\"range\":[\"none\",\"presence\"]}"
+      },
+      {
+        "code": "sensitivity",
+        "type": "Integer",
+        "values": "{\"unit\":\"x\",\"min\":0,\"max\":10,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "near_detection",
+        "type": "Integer",
+        "values": "{\"unit\":\"cm\",\"min\":0,\"max\":1000,\"scale\":0,\"step\":10}"
+      },
+      {
+        "code": "far_detection",
+        "type": "Integer",
+        "values": "{\"unit\":\"cm\",\"min\":0,\"max\":600,\"scale\":0,\"step\":10}"
+      },
+      {
+        "code": "illuminance_value",
+        "type": "Integer",
+        "values": "{\"unit\":\"lux\",\"min\":0,\"max\":10000,\"scale\":0,\"step\":1}"
+      }
+    ]
+  },
+  "data_points": [
+    {
+      "code": "presence_state",
+      "custom_name": "",
+      "dp_id": 1,
+      "time": 0,
+      "type": "Enum",
+      "value": "{\"range\":[\"none\",\"presence\"]}"
+    },
+    {
+      "code": "sensitivity",
+      "custom_name": "",
+      "dp_id": 2,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"x\",\"min\":0,\"max\":10,\"scale\":0,\"step\":1}"
+    },
+    {
+      "code": "near_detection",
+      "custom_name": "",
+      "dp_id": 3,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"cm\",\"min\":0,\"max\":1000,\"scale\":0,\"step\":10}"
+    },
+    {
+      "code": "far_detection",
+      "custom_name": "",
+      "dp_id": 4,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"cm\",\"min\":0,\"max\":600,\"scale\":0,\"step\":10}"
+    },
+    {
+      "code": "illuminance_value",
+      "custom_name": "",
+      "dp_id": 101,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"lux\",\"min\":0,\"max\":10000,\"scale\":0,\"step\":1}"
+    }
+  ]
+}

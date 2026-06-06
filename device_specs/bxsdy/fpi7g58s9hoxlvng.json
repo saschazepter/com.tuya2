@@ -1,0 +1,75 @@
+{
+  "device": {
+    "active_time": 1780136810,
+    "biz_type": 0,
+    "category": "bxsdy",
+    "create_time": 1780136810,
+    "icon": "smart/icon/ay1559701439060fw6BY/6e22fdff54936f205f5aa123e033c3e5.png",
+    "id": "bf3253b2ef8d14d2cdocji",
+    "ip": "",
+    "lat": "",
+    "local_key": "",
+    "lon": "",
+    "name": "Solarkraftwerk",
+    "online": true,
+    "owner_id": "",
+    "product_id": "fpi7g58s9hoxlvng",
+    "product_name": "Solarpowerstorage",
+    "status": [
+      {
+        "code": "battery_percentage",
+        "value": 64
+      },
+      {
+        "code": "remain_time",
+        "value": 15852
+      },
+      {
+        "code": "temp_current",
+        "value": 29
+      },
+      {
+        "code": "temp_set_enum",
+        "value": "c"
+      }
+    ],
+    "sub": false,
+    "time_zone": "+02:00",
+    "uid": "",
+    "update_time": 1780136810,
+    "uuid": ""
+  },
+  "specifications": {
+    "category": "bxsdy",
+    "functions": [
+      {
+        "code": "temp_set_enum",
+        "type": "Enum",
+        "values": "{\"range\":[\"c\",\"f\"]}"
+      }
+    ],
+    "status": [
+      {
+        "code": "battery_percentage",
+        "type": "Integer",
+        "values": "{\"unit\":\"%\",\"min\":0,\"max\":100,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "remain_time",
+        "type": "Integer",
+        "values": "{\"unit\":\"min\",\"min\":0,\"max\":144000,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "temp_current",
+        "type": "Integer",
+        "values": "{\"unit\":\"℃\",\"min\":-40,\"max\":120,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "temp_set_enum",
+        "type": "Enum",
+        "values": "{\"range\":[\"c\",\"f\"]}"
+      }
+    ]
+  },
+  "data_points": []
+}

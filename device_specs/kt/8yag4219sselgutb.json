@@ -1,0 +1,174 @@
+{
+  "device": {
+    "active_time": 1779664226,
+    "biz_type": 0,
+    "category": "kt",
+    "create_time": 1779664226,
+    "icon": "smart/icon/bay16274285908538Dst/94a48de1f9d80255bae481b8b45b27b0.png",
+    "id": "ebdf21880dfd4aea1akhfg",
+    "ip": "",
+    "lat": "",
+    "local_key": "",
+    "lon": "",
+    "name": "Garage A/C",
+    "online": true,
+    "owner_id": "",
+    "product_id": "8yag4219sselgutb",
+    "product_name": "Portable AC OPAC 9H",
+    "status": [
+      {
+        "code": "switch",
+        "value": false
+      },
+      {
+        "code": "temp_set",
+        "value": 23
+      },
+      {
+        "code": "temp_current",
+        "value": 96
+      },
+      {
+        "code": "temp_unit_convert",
+        "value": "f"
+      },
+      {
+        "code": "fault",
+        "value": 0
+      },
+      {
+        "code": "temp_set_f",
+        "value": 73
+      },
+      {
+        "code": "temp_current_f",
+        "value": 88
+      }
+    ],
+    "sub": false,
+    "time_zone": "-07:00",
+    "uid": "",
+    "update_time": 1779664226,
+    "uuid": ""
+  },
+  "specifications": {
+    "category": "kt",
+    "functions": [
+      {
+        "code": "switch",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "temp_set",
+        "type": "Integer",
+        "values": "{\"unit\":\"℃\",\"min\":16,\"max\":32,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "temp_unit_convert",
+        "type": "Enum",
+        "values": "{\"range\":[\"c\",\"f\"]}"
+      },
+      {
+        "code": "temp_set_f",
+        "type": "Integer",
+        "values": "{\"unit\":\"℉\",\"min\":61,\"max\":90,\"scale\":0,\"step\":1}"
+      }
+    ],
+    "status": [
+      {
+        "code": "switch",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "temp_set",
+        "type": "Integer",
+        "values": "{\"unit\":\"℃\",\"min\":16,\"max\":32,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "temp_current",
+        "type": "Integer",
+        "values": "{\"unit\":\"℃\",\"min\":0,\"max\":99,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "temp_unit_convert",
+        "type": "Enum",
+        "values": "{\"range\":[\"c\",\"f\"]}"
+      },
+      {
+        "code": "fault",
+        "type": "Bitmap",
+        "values": "{\"label\":[\"Rtemp_fault\",\"IPtemp_fault\",\"Water_FULL\"]}"
+      },
+      {
+        "code": "temp_set_f",
+        "type": "Integer",
+        "values": "{\"unit\":\"℉\",\"min\":61,\"max\":90,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "temp_current_f",
+        "type": "Integer",
+        "values": "{\"unit\":\"℉\",\"min\":0,\"max\":99,\"scale\":0,\"step\":1}"
+      }
+    ]
+  },
+  "data_points": [
+    {
+      "code": "switch",
+      "custom_name": "",
+      "dp_id": 1,
+      "time": 0,
+      "type": "Boolean",
+      "value": "{}"
+    },
+    {
+      "code": "temp_set",
+      "custom_name": "",
+      "dp_id": 2,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"℃\",\"min\":16,\"max\":32,\"scale\":0,\"step\":1}"
+    },
+    {
+      "code": "temp_current",
+      "custom_name": "",
+      "dp_id": 3,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"℃\",\"min\":0,\"max\":99,\"scale\":0,\"step\":1}"
+    },
+    {
+      "code": "temp_unit_convert",
+      "custom_name": "",
+      "dp_id": 19,
+      "time": 0,
+      "type": "Enum",
+      "value": "{\"range\":[\"c\",\"f\"]}"
+    },
+    {
+      "code": "fault",
+      "custom_name": "",
+      "dp_id": 22,
+      "time": 0,
+      "type": "Bitmap",
+      "value": "{\"label\":[\"Rtemp_fault\",\"IPtemp_fault\",\"Water_FULL\"]}"
+    },
+    {
+      "code": "temp_set_f",
+      "custom_name": "",
+      "dp_id": 23,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"℉\",\"min\":61,\"max\":90,\"scale\":0,\"step\":1}"
+    },
+    {
+      "code": "temp_current_f",
+      "custom_name": "",
+      "dp_id": 24,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"℉\",\"min\":0,\"max\":99,\"scale\":0,\"step\":1}"
+    }
+  ]
+}

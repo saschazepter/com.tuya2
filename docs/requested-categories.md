@@ -48,6 +48,9 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
   - bzyd - Not documented
     - Nodiee Sleep Assist Smart PRO
 
+  - bxsdy - Not documented
+    - Solar power storage
+
   - cjkg - Scene switch
     - MOES 6 gang wall light + scene switch
 
@@ -72,6 +75,9 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
 
   - hjjcy - Environmental detector
     - Air Quality Monitor 15in1
+
+  - hps - Human Presence Sensor
+    - Human presence sensor
 
   - hxd - Not documented
     - Wake Up Light
