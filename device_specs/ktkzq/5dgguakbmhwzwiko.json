@@ -1,0 +1,71 @@
+{
+  "device": {
+    "active_time": 1781356535,
+    "biz_type": 0,
+    "category": "ktkzq",
+    "create_time": 1781356535,
+    "icon": "smart/icon/bay1665994981833bTeS/51f9d8393684000ea98d8a42d370e976.png",
+    "id": "bfc607a84718ba9da0yeea",
+    "ip": "",
+    "lat": "",
+    "local_key": "",
+    "lon": "",
+    "name": "Fancoil PC Kamer",
+    "online": true,
+    "owner_id": "",
+    "product_id": "5dgguakbmhwzwiko",
+    "product_name": "Ventilconvettore",
+    "status": [
+      {
+        "code": "switch",
+        "value": true
+      },
+      {
+        "code": "temp_set",
+        "value": 22
+      },
+      {
+        "code": "temp_current",
+        "value": 23
+      }
+    ],
+    "sub": false,
+    "time_zone": "+02:00",
+    "uid": "",
+    "update_time": 1781356535,
+    "uuid": ""
+  },
+  "specifications": {
+    "category": "ktkzq",
+    "functions": [
+      {
+        "code": "switch",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "temp_set",
+        "type": "Integer",
+        "values": "{\"unit\":\"℃\",\"min\":0,\"max\":40,\"scale\":0,\"step\":1}"
+      }
+    ],
+    "status": [
+      {
+        "code": "switch",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "temp_set",
+        "type": "Integer",
+        "values": "{\"unit\":\"℃\",\"min\":0,\"max\":40,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "temp_current",
+        "type": "Integer",
+        "values": "{\"unit\":\"℃\",\"min\":-20,\"max\":50,\"scale\":0,\"step\":1}"
+      }
+    ]
+  },
+  "data_points": []
+}

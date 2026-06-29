@@ -1,0 +1,90 @@
+{
+  "device": {
+    "active_time": 1655474872,
+    "biz_type": 0,
+    "category": "clkg",
+    "create_time": 1655474872,
+    "icon": "smart/icon/001461404842469iWoLE/d5c3f4a030c2e136a5913b431222622d.png",
+    "id": "bff2338b2124ac87e5c6hz",
+    "ip": "<redacted>",
+    "lat": "<redacted>",
+    "local_key": "<redacted>",
+    "lon": "<redacted>",
+    "name": "Persiana salon",
+    "online": true,
+    "owner_id": "<redacted>",
+    "product_id": "fthu3wguzoqdayzp",
+    "product_name": "Curtain switch",
+    "status": [
+      {
+        "code": "control",
+        "value": "stop"
+      },
+      {
+        "code": "percent_control",
+        "value": 50
+      },
+      {
+        "code": "cur_calibration",
+        "value": "start"
+      },
+      {
+        "code": "switch_backlight",
+        "value": true
+      }
+    ],
+    "sub": false,
+    "time_zone": "+02:00",
+    "uid": "<redacted>",
+    "update_time": 1655474872,
+    "uuid": "<redacted>"
+  },
+  "specifications": {
+    "category": "clkg",
+    "functions": [
+      {
+        "code": "control",
+        "type": "Enum",
+        "values": "{\"range\":[\"open\",\"stop\",\"close\"]}"
+      },
+      {
+        "code": "percent_control",
+        "type": "Integer",
+        "values": "{\"unit\":\"%\",\"min\":0,\"max\":100,\"scale\":0,\"step\":10}"
+      },
+      {
+        "code": "cur_calibration",
+        "type": "Enum",
+        "values": "{\"range\":[\"start\",\"end\"]}"
+      },
+      {
+        "code": "switch_backlight",
+        "type": "Boolean",
+        "values": "{}"
+      }
+    ],
+    "status": [
+      {
+        "code": "control",
+        "type": "Enum",
+        "values": "{\"range\":[\"open\",\"stop\",\"close\"]}"
+      },
+      {
+        "code": "percent_control",
+        "type": "Integer",
+        "values": "{\"unit\":\"%\",\"min\":0,\"max\":100,\"scale\":0,\"step\":10}"
+      },
+      {
+        "code": "cur_calibration",
+        "type": "Enum",
+        "values": "{\"range\":[\"start\",\"end\"]}"
+      },
+      {
+        "code": "switch_backlight",
+        "type": "Boolean",
+        "values": "{}"
+      }
+    ]
+  },
+  "data_points": []
+}

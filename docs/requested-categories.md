@@ -29,6 +29,7 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
     - Wood's AC Venezia Silver 18K Smart Home
     - Air Condition
     - Air Condition - Minirooftop (BreezeHub)
+    - Wood's Cortina Silent 12K Smart Home
 
   - pm2.5 / pm25 - PM2.5 Detector
     - Tuya Air Housekeeper
@@ -86,6 +87,9 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
     - Flient Smart door Lock
     - RAYKUBE K20
 
+  - kg - Undocumented
+    - 2G SMART ZIGBEE SWITCH
+
   - kj - Air purifier
     - Proscenic A9
     - Zedar L600
@@ -93,6 +97,7 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
   - ktkzq - Air conditioner controller
     - W'eau heat pump
     - Ikaro AC controller
+    - Ventilconvettore
 
   - ldcg - Luminance Sensor
     - Generic light sensor
@@ -104,6 +109,10 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
 
   - mc - Door and Window Controller
     - Window Opener (Chain Actuator)
+    - Smart Windows and doors
+
+  - mcs - Contact Sensor
+    - Door Window Contact Sensor
 
   - mk - Access control
     - Access Control TF1/TF2/TF3 AliExpress
@@ -153,6 +162,7 @@ All defined categories can be found at https://developer.tuya.com/en/docs/iot/st
 
   - ywcgq - Not documented
     - Water level monitor
+    - Tank A Level
 
   - znrb - Not documented
     - Smart Heat Pump

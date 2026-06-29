@@ -1,0 +1,48 @@
+{
+  "device": {
+    "active_time": 1774192831,
+    "biz_type": 0,
+    "category": "mc",
+    "create_time": 1774192831,
+    "icon": "smart/program_category_icon/mc.png",
+    "id": "bf2390864200fe9945r6el",
+    "ip": "",
+    "lat": "",
+    "local_key": "",
+    "lon": "",
+    "name": "Lamellen",
+    "online": true,
+    "owner_id": "",
+    "product_id": "ozttm5n6okadq7tq",
+    "product_name": "Smart Windows and doors",
+    "status": [
+      {
+        "code": "control",
+        "value": "stop"
+      }
+    ],
+    "sub": false,
+    "time_zone": "+01:00",
+    "uid": "",
+    "update_time": 1774192831,
+    "uuid": ""
+  },
+  "specifications": {
+    "category": "mc",
+    "functions": [
+      {
+        "code": "control",
+        "type": "Enum",
+        "values": "{\"range\":[\"open\",\"stop\",\"close\"]}"
+      }
+    ],
+    "status": [
+      {
+        "code": "control",
+        "type": "Enum",
+        "values": "{\"range\":[\"open\",\"stop\",\"close\"]}"
+      }
+    ]
+  },
+  "data_points": []
+}

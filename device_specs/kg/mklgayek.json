@@ -1,0 +1,257 @@
+{
+  "device": {
+    "active_time": 1715105200,
+    "biz_type": 18,
+    "category": "kg",
+    "create_time": 1715105200,
+    "icon": "smart/icon/ay1558960583161IwcrX/0a4471aff999b1e353d2220e50a62855.png",
+    "id": "bf9c5d1b870308be99ixrl",
+    "ip": "<redacted>",
+    "lat": "<redacted>",
+    "local_key": "<redacted>",
+    "lon": "<redacted>",
+    "model": "ZTS21",
+    "name": "Interruptor Salón1",
+    "node_id": "a4c1389a1a1623a6",
+    "online": true,
+    "owner_id": "<redacted>",
+    "product_id": "mklgayek",
+    "product_name": "2G SMART ZIGBEE SWITCH",
+    "status": [
+      {
+        "code": "switch_1",
+        "value": false
+      },
+      {
+        "code": "switch_2",
+        "value": false
+      },
+      {
+        "code": "countdown_1",
+        "value": 0
+      },
+      {
+        "code": "countdown_2",
+        "value": 0
+      },
+      {
+        "code": "relay_status",
+        "value": "power_off"
+      },
+      {
+        "code": "light_mode",
+        "value": "pos"
+      },
+      {
+        "code": "switch_backlight",
+        "value": true
+      },
+      {
+        "code": "switch_inching",
+        "value": "AAAAAgAA"
+      },
+      {
+        "code": "relay_status_1",
+        "value": "power_off"
+      },
+      {
+        "code": "relay_status_2",
+        "value": "power_off"
+      }
+    ],
+    "sub": true,
+    "time_zone": "+01:00",
+    "uid": "<redacted>",
+    "update_time": 1715105200,
+    "uuid": "<redacted>"
+  },
+  "specifications": {
+    "category": "kg",
+    "functions": [
+      {
+        "code": "switch_1",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "switch_2",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "countdown_1",
+        "type": "Integer",
+        "values": "{\"unit\":\"s\",\"min\":0,\"max\":43200,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "countdown_2",
+        "type": "Integer",
+        "values": "{\"unit\":\"s\",\"min\":0,\"max\":43200,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "relay_status",
+        "type": "Enum",
+        "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+      },
+      {
+        "code": "light_mode",
+        "type": "Enum",
+        "values": "{\"range\":[\"none\",\"relay\",\"pos\"]}"
+      },
+      {
+        "code": "switch_backlight",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "switch_inching",
+        "type": "String",
+        "values": "{}"
+      },
+      {
+        "code": "relay_status_1",
+        "type": "Enum",
+        "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+      },
+      {
+        "code": "relay_status_2",
+        "type": "Enum",
+        "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+      }
+    ],
+    "status": [
+      {
+        "code": "switch_1",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "switch_2",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "countdown_1",
+        "type": "Integer",
+        "values": "{\"unit\":\"s\",\"min\":0,\"max\":43200,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "countdown_2",
+        "type": "Integer",
+        "values": "{\"unit\":\"s\",\"min\":0,\"max\":43200,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "relay_status",
+        "type": "Enum",
+        "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+      },
+      {
+        "code": "light_mode",
+        "type": "Enum",
+        "values": "{\"range\":[\"none\",\"relay\",\"pos\"]}"
+      },
+      {
+        "code": "switch_backlight",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "switch_inching",
+        "type": "String",
+        "values": "{}"
+      },
+      {
+        "code": "relay_status_1",
+        "type": "Enum",
+        "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+      },
+      {
+        "code": "relay_status_2",
+        "type": "Enum",
+        "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+      }
+    ]
+  },
+  "data_points": [
+    {
+      "code": "switch_1",
+      "custom_name": "",
+      "dp_id": 1,
+      "time": 0,
+      "type": "Boolean",
+      "value": "{}"
+    },
+    {
+      "code": "switch_2",
+      "custom_name": "",
+      "dp_id": 2,
+      "time": 0,
+      "type": "Boolean",
+      "value": "{}"
+    },
+    {
+      "code": "countdown_1",
+      "custom_name": "",
+      "dp_id": 7,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"s\",\"min\":0,\"max\":43200,\"scale\":0,\"step\":1}"
+    },
+    {
+      "code": "countdown_2",
+      "custom_name": "",
+      "dp_id": 8,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"s\",\"min\":0,\"max\":43200,\"scale\":0,\"step\":1}"
+    },
+    {
+      "code": "relay_status",
+      "custom_name": "",
+      "dp_id": 14,
+      "time": 0,
+      "type": "Enum",
+      "value": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+    },
+    {
+      "code": "light_mode",
+      "custom_name": "",
+      "dp_id": 15,
+      "time": 0,
+      "type": "Enum",
+      "value": "{\"range\":[\"none\",\"relay\",\"pos\"]}"
+    },
+    {
+      "code": "switch_backlight",
+      "custom_name": "",
+      "dp_id": 16,
+      "time": 0,
+      "type": "Boolean",
+      "value": "{}"
+    },
+    {
+      "code": "switch_inching",
+      "custom_name": "",
+      "dp_id": 19,
+      "time": 0,
+      "type": "String",
+      "value": "{}"
+    },
+    {
+      "code": "relay_status_1",
+      "custom_name": "",
+      "dp_id": 29,
+      "time": 0,
+      "type": "Enum",
+      "value": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+    },
+    {
+      "code": "relay_status_2",
+      "custom_name": "",
+      "dp_id": 30,
+      "time": 0,
+      "type": "Enum",
+      "value": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "device": {
+    "active_time": 1777731842,
+    "biz_type": 18,
+    "category": "kt",
+    "create_time": 1777731842,
+    "icon": "smart/icon/ay1569237003624Hfrjq/13cf7e26f0b597360a6d1c8bebd17da4.png",
+    "id": "bfb3a51749872ed86f3n6m",
+    "ip": "",
+    "lat": "",
+    "local_key": "",
+    "lon": "",
+    "name": "Wood's Cortina Silent 12K Smart Home",
+    "online": true,
+    "owner_id": "",
+    "product_id": "cyat7syhq4aqpicg",
+    "product_name": "",
+    "status": [
+      {
+        "code": "switch",
+        "value": false
+      },
+      {
+        "code": "temp_set",
+        "value": 22
+      },
+      {
+        "code": "temp_current",
+        "value": 21
+      },
+      {
+        "code": "fan_speed_enum",
+        "value": "mid"
+      },
+      {
+        "code": "lock",
+        "value": false
+      },
+      {
+        "code": "temp_unit_convert",
+        "value": "c"
+      },
+      {
+        "code": "fault",
+        "value": 0
+      },
+      {
+        "code": "temp_current_f",
+        "value": 50
+      },
+      {
+        "code": "temp_set_f",
+        "value": 62
+      },
+      {
+        "code": "sleep",
+        "value": false
+      }
+    ],
+    "sub": false,
+    "time_zone": "+02:00",
+    "uid": "",
+    "update_time": 1777731842,
+    "uuid": ""
+  },
+  "specifications": {
+    "category": "kt",
+    "functions": [
+      {
+        "code": "switch",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "temp_set",
+        "type": "Integer",
+        "values": "{\"unit\":\"℃\",\"min\":17,\"max\":30,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "fan_speed_enum",
+        "type": "Enum",
+        "values": "{\"range\":[\"low\",\"high\"]}"
+      },
+      {
+        "code": "lock",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "temp_unit_convert",
+        "type": "Enum",
+        "values": "{\"range\":[\"c\",\"f\"]}"
+      },
+      {
+        "code": "temp_set_f",
+        "type": "Integer",
+        "values": "{\"unit\":\"℉\",\"min\":62,\"max\":86,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "sleep",
+        "type": "Boolean",
+        "values": "{}"
+      }
+    ],
+    "status": [
+      {
+        "code": "switch",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "temp_set",
+        "type": "Integer",
+        "values": "{\"unit\":\"℃\",\"min\":17,\"max\":30,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "temp_current",
+        "type": "Integer",
+        "values": "{\"unit\":\"℃\",\"min\":10,\"max\":35,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "fan_speed_enum",
+        "type": "Enum",
+        "values": "{\"range\":[\"low\",\"high\"]}"
+      },
+      {
+        "code": "lock",
+        "type": "Boolean",
+        "values": "{}"
+      },
+      {
+        "code": "temp_unit_convert",
+        "type": "Enum",
+        "values": "{\"range\":[\"c\",\"f\"]}"
+      },
+      {
+        "code": "fault",
+        "type": "Bitmap",
+        "values": "{\"label\":[\"sensor_fault\",\"temp_fault\"]}"
+      },
+      {
+        "code": "temp_current_f",
+        "type": "Integer",
+        "values": "{\"unit\":\"℉\",\"min\":50,\"max\":95,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "temp_set_f",
+        "type": "Integer",
+        "values": "{\"unit\":\"℉\",\"min\":62,\"max\":86,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "sleep",
+        "type": "Boolean",
+        "values": "{}"
+      }
+    ]
+  },
+  "data_points": [
+    {
+      "code": "switch",
+      "custom_name": "",
+      "dp_id": 1,
+      "time": 0,
+      "type": "Boolean",
+      "value": "{}"
+    },
+    {
+      "code": "temp_set",
+      "custom_name": "",
+      "dp_id": 2,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"℃\",\"min\":17,\"max\":30,\"scale\":0,\"step\":1}"
+    },
+    {
+      "code": "temp_current",
+      "custom_name": "",
+      "dp_id": 3,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"℃\",\"min\":10,\"max\":35,\"scale\":0,\"step\":1}"
+    },
+    {
+      "code": "fan_speed_enum",
+      "custom_name": "",
+      "dp_id": 5,
+      "time": 0,
+      "type": "Enum",
+      "value": "{\"range\":[\"low\",\"high\"]}"
+    },
+    {
+      "code": "child_lock",
+      "custom_name": "",
+      "dp_id": 14,
+      "time": 0,
+      "type": "Boolean",
+      "value": "{}"
+    },
+    {
+      "code": "temp_unit_convert",
+      "custom_name": "",
+      "dp_id": 19,
+      "time": 0,
+      "type": "Enum",
+      "value": "{\"range\":[\"c\",\"f\"]}"
+    },
+    {
+      "code": "fault",
+      "custom_name": "",
+      "dp_id": 22,
+      "time": 0,
+      "type": "Bitmap",
+      "value": "{\"label\":[\"sensor_fault\",\"temp_fault\"]}"
+    },
+    {
+      "code": "temp_current_f",
+      "custom_name": "",
+      "dp_id": 23,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"℉\",\"min\":50,\"max\":95,\"scale\":0,\"step\":1}"
+    },
+    {
+      "code": "temp_set_f",
+      "custom_name": "",
+      "dp_id": 24,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"℉\",\"min\":62,\"max\":86,\"scale\":0,\"step\":1}"
+    },
+    {
+      "code": "sleep",
+      "custom_name": "",
+      "dp_id": 105,
+      "time": 0,
+      "type": "Boolean",
+      "value": "{}"
+    }
+  ]
+}

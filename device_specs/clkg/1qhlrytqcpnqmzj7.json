@@ -1,0 +1,58 @@
+{
+  "device": {
+    "active_time": 1566922805,
+    "biz_type": 0,
+    "category": "clkg",
+    "create_time": 1566922805,
+    "icon": "smart/program_category_icon/clkg.png",
+    "id": "451063742cf4321d9cd6",
+    "ip": "<redacted>",
+    "lat": "<redacted>",
+    "local_key": "<redacted>",
+    "lon": "<redacted>",
+    "name": "Persiana dormitorio",
+    "online": true,
+    "owner_id": "<redacted>",
+    "product_id": "1qhlrytqcpnqmzj7",
+    "product_name": "Curtain switch",
+    "status": [
+      {
+        "code": "control",
+        "value": "open"
+      }
+    ],
+    "sub": false,
+    "time_zone": "+01:00",
+    "uid": "<redacted>",
+    "update_time": 1566922805,
+    "uuid": "<redacted>"
+  },
+  "specifications": {
+    "category": "clkg",
+    "functions": [
+      {
+        "code": "tr_timecon",
+        "type": "Integer",
+        "values": "{\"max\":120,\"min\":10,\"scale\":0,\"step\":1,\"unit\":\"s\"}"
+      },
+      {
+        "code": "control",
+        "type": "Enum",
+        "values": "{\"range\":[\"open\",\"stop\",\"close\"]}"
+      }
+    ],
+    "status": [
+      {
+        "code": "control",
+        "type": "Enum",
+        "values": "{\"range\":[\"open\",\"stop\",\"close\"]}"
+      },
+      {
+        "code": "tr_timecon",
+        "type": "Integer",
+        "values": "{\"max\":120,\"min\":10,\"scale\":0,\"step\":1,\"unit\":\"s\"}"
+      }
+    ]
+  },
+  "data_points": []
+}

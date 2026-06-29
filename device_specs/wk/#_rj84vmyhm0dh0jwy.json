@@ -1,0 +1,31 @@
+{
+  "device": {
+    "active_time": 1664814317,
+    "biz_type": 0,
+    "category": "wk",
+    "create_time": 1664814317,
+    "icon": "smart/icon/bay1598402984069otRu/16527533308169f70b106.jpg",
+    "id": "bf0a2b6fed57e32e41q0j4",
+    "ip": "",
+    "lat": "",
+    "local_key": "",
+    "lon": "",
+    "name": "ATORCH-Temperature Controller (S1TW)",
+    "online": true,
+    "owner_id": "",
+    "product_id": "rj84vmyhm0dh0jwy",
+    "product_name": "ATORCH-Temperature Controller (S1TW)",
+    "sub": false,
+    "time_zone": "+02:00",
+    "uid": "",
+    "update_time": 1664814317,
+    "uuid": "",
+    "status": []
+  },
+  "specifications": {
+    "category": "",
+    "functions": [],
+    "status": []
+  },
+  "data_points": []
+}

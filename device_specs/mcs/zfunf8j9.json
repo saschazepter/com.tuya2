@@ -1,0 +1,70 @@
+{
+  "device": {
+    "active_time": 1636894590,
+    "biz_type": 18,
+    "category": "mcs",
+    "create_time": 1636894590,
+    "icon": "smart/icon/bay1611146591076A3MO/813e0ec5f9671197b79ba7a53b9c14e1.png",
+    "id": "bf8212f7d63198f89ch6be",
+    "ip": "",
+    "lat": "",
+    "local_key": "",
+    "lon": "",
+    "model": "ZC-ZK-GWM",
+    "name": "Ventana comedor",
+    "node_id": "60a423fffe43095e",
+    "online": true,
+    "owner_id": "",
+    "product_id": "zfunf8j9",
+    "product_name": "Door Window Contact Sensor",
+    "status": [
+      {
+        "code": "doorcontact_state",
+        "value": false
+      },
+      {
+        "code": "battery_value",
+        "value": 58
+      }
+    ],
+    "sub": true,
+    "time_zone": "+01:00",
+    "uid": "",
+    "update_time": 1636894590,
+    "uuid": ""
+  },
+  "specifications": {
+    "category": "mcs",
+    "functions": [],
+    "status": [
+      {
+        "code": "battery_value",
+        "type": "Integer",
+        "values": "{\"unit\":\"\",\"min\":0,\"max\":500,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "doorcontact_state",
+        "type": "Boolean",
+        "values": "{}"
+      }
+    ]
+  },
+  "data_points": [
+    {
+      "code": "Battery",
+      "custom_name": "",
+      "dp_id": 103,
+      "time": 0,
+      "type": "Integer",
+      "value": "{\"unit\":\"\",\"min\":0,\"max\":500,\"scale\":0,\"step\":1}"
+    },
+    {
+      "code": "prm_switch",
+      "custom_name": "",
+      "dp_id": 101,
+      "time": 0,
+      "type": "Boolean",
+      "value": "{}"
+    }
+  ]
+}
