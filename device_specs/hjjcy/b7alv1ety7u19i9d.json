@@ -1,0 +1,114 @@
+{
+  "device": {
+    "active_time": 1767799128,
+    "biz_type": 0,
+    "category": "hjjcy",
+    "create_time": 1767799128,
+    "icon": "smart/icon/bay1646729601679gzLb/173148094457bb7172f89.jpg",
+    "id": "bff165ce59b9bb5c04ewjq",
+    "ip": "<redacted>",
+    "lat": "<redacted>",
+    "local_key": "<redacted>",
+    "lon": "<redacted>",
+    "name": "Luftkvalitet",
+    "online": true,
+    "owner_id": "<redacted>",
+    "product_id": "b7alv1ety7u19i9d",
+    "product_name": "9in1/12in1/14in1",
+    "status": [
+      {
+        "code": "air_quality_index",
+        "value": "level_6"
+      },
+      {
+        "code": "temp_current",
+        "value": 272
+      },
+      {
+        "code": "humidity_value",
+        "value": 49
+      },
+      {
+        "code": "co2_value",
+        "value": 452
+      },
+      {
+        "code": "ch2o_value",
+        "value": 121
+      },
+      {
+        "code": "voc_value",
+        "value": 1408
+      },
+      {
+        "code": "pm25_value",
+        "value": 23
+      },
+      {
+        "code": "pm10",
+        "value": 30
+      },
+      {
+        "code": "battery_percentage",
+        "value": 90
+      }
+    ],
+    "sub": false,
+    "time_zone": "+01:00",
+    "uid": "<redacted>",
+    "update_time": 1767799128,
+    "uuid": "<redacted>"
+  },
+  "specifications": {
+    "category": "hjjcy",
+    "functions": [],
+    "status": [
+      {
+        "code": "air_quality_index",
+        "type": "Enum",
+        "values": "{\"range\":[\"level_1\",\"level_2\",\"level_3\",\"level_4\",\"level_5\",\"level_6\"]}"
+      },
+      {
+        "code": "temp_current",
+        "type": "Integer",
+        "values": "{\"unit\":\"℃\",\"min\":-400,\"max\":2000,\"scale\":1,\"step\":1}"
+      },
+      {
+        "code": "humidity_value",
+        "type": "Integer",
+        "values": "{\"unit\":\"%\",\"min\":0,\"max\":100,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "co2_value",
+        "type": "Integer",
+        "values": "{\"unit\":\"PPM\",\"min\":0,\"max\":5000,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "ch2o_value",
+        "type": "Integer",
+        "values": "{\"unit\":\"mg/m3\",\"min\":0,\"max\":2000,\"scale\":3,\"step\":1}"
+      },
+      {
+        "code": "voc_value",
+        "type": "Integer",
+        "values": "{\"unit\":\"mg/m3\",\"min\":0,\"max\":9999,\"scale\":3,\"step\":1}"
+      },
+      {
+        "code": "pm25_value",
+        "type": "Integer",
+        "values": "{\"unit\":\"ug/m3\",\"min\":0,\"max\":999,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "pm10",
+        "type": "Integer",
+        "values": "{\"unit\":\"ug/m3\",\"min\":0,\"max\":999,\"scale\":0,\"step\":1}"
+      },
+      {
+        "code": "battery_percentage",
+        "type": "Integer",
+        "values": "{\"unit\":\"%\",\"min\":0,\"max\":100,\"scale\":0,\"step\":1}"
+      }
+    ]
+  },
+  "data_points": []
+}
