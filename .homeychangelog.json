@@ -91,5 +91,8 @@
   },
   "1.5.9": {
     "en": "Solve issue with certain dimmer devices where the type wasn't handled correctly"
+  },
+  "1.5.10": {
+    "en": "Fix certain presence sensors not showing actual presence state"
   }
 }
