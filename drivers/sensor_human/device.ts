@@ -23,7 +23,10 @@ export default class TuyaOAuth2DeviceSensorHuman extends TuyaOAuth2DeviceSensor 
       typeof status['presence_state'] === 'string' &&
       (changedStatusCodes.includes('presence_state') || !this.getSetting('use_alarm_timeout'))
     ) {
-      this.setAlarmCapabilityValue('alarm_human', status['presence_state'] === 'presence').catch(this.error);
+      this.setAlarmCapabilityValue(
+        'alarm_human',
+        ['presence', 'small_move', 'large_move'].includes(status['presence_state']),
+      ).catch(this.error);
     }
 
     // Settings
