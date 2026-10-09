@@ -94,5 +94,8 @@
   },
   "1.5.10": {
     "en": "Fix certain presence sensors not showing actual presence state"
+  },
+  "1.5.11": {
+    "en": "Lower amount of requests sent during pairing procedure"
   }
 }
